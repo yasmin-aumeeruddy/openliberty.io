@@ -590,6 +590,23 @@ header {
         box-shadow: none;
     } 
 
+    #guide_column div.sect1, .code_column .CodeRay code {
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    #guide_column div.sect1 {
+        display: none;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    #guide_column div.sect1.active {
+        display: block;
+    }
+
     #guide_title, #duration_container, #mobile_github_section, #guide_content .sect1 h2, #guide_column .paragraph {
         padding-left: 24px;
         padding-right: 24px;
@@ -623,6 +640,10 @@ header {
     }
     
     #guide_content .code_command > .content:after, #guide_content .code_command > .content:before {
+        display: none;
+    }
+
+    #end_of_guide {
         display: none;
     }
 }
