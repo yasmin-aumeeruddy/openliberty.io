@@ -72,7 +72,6 @@
     &.open{
         display: inline-block;
         width: 45px;
-        transition: .5s ease-in;
         padding: 7px 0;
     }
 
@@ -94,7 +93,6 @@
     background-color: rgb(255, 216, 191);
 
     &.open {
-        left: 275px;
         background-color: #FDF2EA;
     }
 }
@@ -447,9 +445,11 @@
         margin: 0 -15px;
     }
 
-    /* Table of Contents */    
-    #toc_close_green {
-        display: inline-block;
+    /* Table of Contents */   
+    #toc_hotspot, 
+    #toc_indicator,
+    #toc_line {
+        display: none !important; /* Important is to override the display set through javascript */
     }
 
     #toc_close_white {
@@ -492,9 +492,7 @@
         box-shadow: none;
 
         &.open {
-            left: 0;
             width: 280px;
-            transition: all 1s ease;
         }
     }
     
@@ -504,14 +502,5 @@
 
     #toc_inner {
         width: inherit;
-    }
-}
-
-// Todo move this into other media query
-@media (max-width: 1170px) {
-    #toc_hotspot, 
-    #toc_indicator,
-    #toc_line {
-        display: none !important; /* Important is to override the display set through javascript */
     }
 }
