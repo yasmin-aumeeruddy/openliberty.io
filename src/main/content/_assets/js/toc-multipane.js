@@ -185,20 +185,22 @@ function open_TOC(){
         $("#toc_column").addClass('inline in');
         $("#guide_column").removeClass('expanded');
 
-        $("#toc_line").addClass("open");
-        $("#toc_line").css(
-            {'background-color': '#FDF2EA'}
-        );
-        $("#close_container").animate({
-            'left': '262px'
-        }, animation_duration);
-        $("#toc_line").animate({
-            'left': '275px'
-        }, animation_duration);
         $("#toc_column").addClass("open");
         $("#toc_column").animate({
             'left': '0'
         }, animation_duration);
+
+        $("#toc_line").css(
+            {'background-color': '#FDF2EA'}
+        );        
+        $("#toc_line").animate({
+            'left': '275px'
+        }, animation_duration);        
+
+        $("#close_container").animate({
+            'left': '262px'
+        }, animation_duration);        
+
         $("#guide_column").addClass("open");
 
         $("#close_container").show();
@@ -218,7 +220,7 @@ function close_TOC(){
         'left': '300px'
     }, animation_duration);
     // If in 3 column view, we need to shrink the guide column while the toc moves to the right
-    if (window.innerWidth >= threeColumnBreakpoint) {
+    if (inThreeColumnView()) {
         $('#guide_column').animate({
             'width': 'calc(100% - 280px - 780px - 25px)'
         }, animation_duration);
@@ -226,7 +228,7 @@ function close_TOC(){
     $("#toc_column").animate({
         'width': '305px'
     }, animation_duration, function(){
-        if (window.innerWidth >= threeColumnBreakpoint) {
+        if (inThreeColumnView()) {
             $('#guide_column').animate({
                 'width': 'calc(100% - 280px - 780px)'
             }, animation_duration);
@@ -234,8 +236,12 @@ function close_TOC(){
         $("#close_container").animate({
             'left': '0'
         }, animation_duration);
+        
+        $("#toc_line").css(
+            {'background-color': 'transparent'}
+        );
         $("#toc_line").animate({
-            'left': '275px'
+            'left': '0'
         }, animation_duration);
         $("#toc_column").animate({
             'left': '-280px',
@@ -246,11 +252,7 @@ function close_TOC(){
             // Update the width of the guide_column to accomodate the larger space when the browser is in 3 column view.
             $("#guide_column").addClass('expanded');
                        
-            // Remove open class to transition back
-            $("#toc_line").removeClass("open");
-            $("#toc_line").css(
-                {'background-color': 'transparent'}
-            );
+            
             $("#toc_column").removeClass("open inline in");
             $("#guide_column").removeClass("open");
 

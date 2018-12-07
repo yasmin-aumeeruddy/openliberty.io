@@ -17,6 +17,10 @@ function inSingleColumnView(){
     return(window.innerWidth <= twoColumnBreakpoint);
 }
 
+function inThreeColumnView(){
+    return(window.innerWidth >= threeColumnBreakpoint);
+}
+
 function inMobile(){
     return (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
 }

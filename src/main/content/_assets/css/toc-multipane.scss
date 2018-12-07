@@ -91,10 +91,6 @@
     width: 6px;
     position: fixed;
     background-color: rgb(255, 216, 191);
-
-    &.open {
-        background-color: #FDF2EA;
-    }
 }
 
 .scroller_anchor {
@@ -186,7 +182,8 @@
     display: none;
     position: absolute;
     top: 101px;
-    left: 262px;
+    // left: 262px;
+    left: 0;
 
     &:after {
         clear: both;
@@ -461,6 +458,12 @@
     }
 }
 
+@media (min-width: 1171px) {
+    #toc_column {
+        left: -280px;
+    }
+}
+
 @media (min-width: 1440px) {
 
     #breadcrumb_row .breadcrumb {
@@ -484,7 +487,6 @@
 
     #toc_column {
         float: left;
-        left: -280px;
         position: relative;
         padding-bottom: 22px;
         background-color: white;
