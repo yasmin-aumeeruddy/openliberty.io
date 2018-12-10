@@ -49,12 +49,11 @@
 
     &.open {
         width: 280px;
-        height: 100%;
     }
 }
 
 #toc_inner {
-    padding-top: 20px;
+    padding-top: 20px;    
 }
 
 #toc_indicator {
@@ -85,11 +84,13 @@
 }
 
 #toc_line {
+    position: absolute;
+    top: 0;
+    right: 0;
     display: inline-block;
+    float: right;
     z-index: 7; /* to override the z-index values of 4 and 6 for code mirror in interactive guide */
-    left: 0;
     width: 6px;
-    position: fixed;
     background-color: rgb(255, 216, 191);
 }
 
@@ -179,11 +180,9 @@
 }
 
 #close_container {
-    display: none;
     position: absolute;
-    top: 101px;
-    // left: 262px;
-    left: 0;
+    top: 0;
+    left: 260px;
 
     &:after {
         clear: both;
@@ -449,6 +448,11 @@
         display: none !important; /* Important is to override the display set through javascript */
     }
 
+    #toc_column {
+        // left: 0 !important;
+        width: 280px;
+    }
+
     #toc_close_white {
         display: none;
     }
@@ -460,7 +464,11 @@
 
 @media (min-width: 1171px) {
     #toc_column {
-        left: -280px;
+        left: -274px;
+
+        &.open {
+            height: 100%;
+        }
     }
 }
 
@@ -479,6 +487,7 @@
 
     #close_container {
         display: block;
+        position: relative;
     }
 
     #toc_title {
@@ -504,5 +513,12 @@
 
     #toc_inner {
         width: inherit;
+        left: 0;
+    }
+
+    #toc_line {
+        position: static;
+        top: 0;
+        right: 0;
     }
 }

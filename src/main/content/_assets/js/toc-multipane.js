@@ -15,12 +15,10 @@ function handleFloatingTableOfContent() {
         // The top of the TOC is scrolling off the screen, enable floating TOC.
         if(isBackgroundBottomVisible()) {
             handleTOCScrolling();
-            shrinkTOCIndicator();
         } else {
             // The entire viewport is filled with the background, so
             // do not need to worry about the TOC flowing out of the background.
             enableFloatingTOC();
-            expandTOCIndicator();
         }
     } else {
         // CURRENTLY IN MOBILE VIEW OR 2 COLUMN VIEW
@@ -41,22 +39,6 @@ function calculateTOCHeight(){
     var endOfGuidePosition = $("#end_of_guide")[0].getClientRects()[0].top;
     var headerHeight = $('header').height();
     return endOfGuidePosition - headerHeight;
-}
-
-function shrinkTOCIndicator() {
-    $('#toc_line').css({
-        "position": "", 
-        "top": "",
-        "height": calculateTOCHeight()
-    });
-}
-
-function expandTOCIndicator() {
-    $('#toc_line').css({
-        "position":"fixed",
-        "top":"101px",
-        "height": calculateTOCHeight()
-    });
 }
 
 // Remove previous TOC section highlighted and highlight correct step
@@ -182,28 +164,20 @@ function open_TOC(){
     if(!inSingleColumnView()){
         var animation_duration = 300;
         $("#toc_title").css('margin-top', '0px');
-        $("#toc_column").addClass('inline in');
-        $("#guide_column").removeClass('expanded');
+        $("#toc_column").addClass('inline in');          
+        $("#toc_column").addClass("open");  
 
-        $("#toc_column").addClass("open");
         $("#toc_column").animate({
             'left': '0'
-        }, animation_duration);
+        }, animation_duration, function(){
+            $("#guide_column").removeClass('expanded');
+        });
 
         $("#toc_line").css(
             {'background-color': '#FDF2EA'}
-        );        
-        $("#toc_line").animate({
-            'left': '275px'
-        }, animation_duration);        
-
-        $("#close_container").animate({
-            'left': '262px'
-        }, animation_duration);        
+        );   
 
         $("#guide_column").addClass("open");
-
-        $("#close_container").show();
         $("#toc_indicator").hide();
 
         restoreCurrentStep();
@@ -212,13 +186,7 @@ function open_TOC(){
 
 // Handle collapsing the table of contents from full width back into an orange line on the left side of the page. The animation bounces the table of contents to the right some and then slides the drawer out of the left side of the screen.
 function close_TOC(){
-    var animation_duration = 300;
-    $("#close_container").animate({
-        'left': '287px'
-    }, animation_duration);
-    $("#toc_line").animate({
-        'left': '300px'
-    }, animation_duration);
+    var animation_duration = 300;    
     // If in 3 column view, we need to shrink the guide column while the toc moves to the right
     if (inThreeColumnView()) {
         $('#guide_column').animate({
@@ -233,30 +201,23 @@ function close_TOC(){
                 'width': 'calc(100% - 280px - 780px)'
             }, animation_duration);
         }
-        $("#close_container").animate({
-            'left': '0'
-        }, animation_duration);
         
         $("#toc_line").css(
             {'background-color': 'transparent'}
         );
-        $("#toc_line").animate({
-            'left': '0'
-        }, animation_duration);
+        
         $("#toc_column").animate({
-            'left': '-280px',
+            'left': '-274px',
             'width': '280px'
         }, animation_duration, function(){
             $("#toc_title").css('margin-top', '20px');
 
             // Update the width of the guide_column to accomodate the larger space when the browser is in 3 column view.
-            $("#guide_column").addClass('expanded');
-                       
+            $("#guide_column").addClass('expanded');                       
             
             $("#toc_column").removeClass("open inline in");
             $("#guide_column").removeClass("open");
 
-            $("#close_container").hide();
             $("#toc_indicator").removeClass('open');
             $("#toc_indicator").show();
 
