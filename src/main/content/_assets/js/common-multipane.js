@@ -113,21 +113,45 @@ function resizeGuideSections() {
 function handleFloatingCodeColumn() {
     if(window.innerWidth > twoColumnBreakpoint) {
         // CURRENTLY IN DESKTOP VIEW
-        if(isBackgroundBottomVisible()) {
-            // Set the bottom of the code column to the distance between the top of the end of guide section and the bottom of the page.
-            var windowHeight = window.innerHeight;
+        var navbar_height = $('nav').outerHeight();
+        if(isBackgroundBottomVisible()) {            
+            var windowHeight = window.innerHeight;            
             var relatedGuidesTopPosition = $("#end_of_guide")[0].getBoundingClientRect().top;
+            var bottom = (windowHeight - relatedGuidesTopPosition);
+            var visible_background_height = heightOfVisibleBackground();
+            var visible_code_column_height =  $('#code_column')[0].getBoundingClientRect().bottom - navbar_height;
             if(relatedGuidesTopPosition){
-                var bottom = windowHeight - relatedGuidesTopPosition;
-                $("#code_column").css('bottom', bottom + 'px');
-            } else {
-                $("#code_column").css('bottom', 'auto');
+                if(codeColumnExtendsPastBottom(visible_code_column_height, visible_background_height)){                    
+                    handleVanishingCodeColumn(visible_background_height, visible_code_column_height, navbar_height, bottom);
+                } else {
+                    // console.error("The code column is still completely visible.");
+                    $('#code_column').css({'position':'fixed', 'top': navbar_height + 'px'});    
+                    $("#code_column").css('bottom', bottom + 'px');
+                }
             }
         } else {
             // The entire viewport is filled with the code column
-            $("#code_column").css('bottom', '0');
+            enableFloatingCodeColumn(navbar_height);
         }
     }
+}
+
+function handleVanishingCodeColumn(visible_background_height, visible_code_column_height, navbar_height, bottom){
+    // console.error("Code column extends past the background height");
+    // console.error("code column height: " + code_column_height);
+    // console.error("visible back ground height: " + visible_background_height);
+    var negativeNumber = visible_background_height - visible_code_column_height + navbar_height;
+    $("#code_column").css('top', negativeNumber + 'px');
+    $("#code_column").css('bottom', bottom + 'px');
+}
+
+function codeColumnExtendsPastBottom(visible_code_column_height, visible_background_height){    
+    return visible_code_column_height > visible_background_height;
+}
+
+function enableFloatingCodeColumn(navbar_height){
+    $("#code_column").css('bottom', '0');
+    $("#code_column").css('top', navbar_height + 'px');
 }
 
 /* Detect if the user has scrolled downwards into a new section and apply inertial resistence. */
