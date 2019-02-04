@@ -119,7 +119,7 @@ function handleFloatingCodeColumn() {
             var relatedGuidesTopPosition = $("#end_of_guide")[0].getBoundingClientRect().top;
             var bottom = (windowHeight - relatedGuidesTopPosition);
             var visible_background_height = heightOfVisibleBackground();
-            var visible_code_column_height =  $('#code_column')[0].getBoundingClientRect().bottom - navbar_height;
+            var visible_code_column_height =  $('#code_column')[0].getBoundingClientRect().bottom;
             if(relatedGuidesTopPosition){
                 if(codeColumnExtendsPastBottom(visible_code_column_height, visible_background_height)){                    
                     handleVanishingCodeColumn(visible_background_height, visible_code_column_height, navbar_height, bottom);
