@@ -496,6 +496,29 @@ header {
     }
 }
 
+// snap scrolling
+html, body {
+  overflow: hidden;
+}
+
+#guide_content {
+    overflow: scroll;
+    height: 100vh;
+    scroll-snap-type: proximity;
+    scroll-snap-points-y: repeat(100vh);
+    scroll-snap-type: y proximity;
+}
+
+.sect1 {
+    scroll-snap-align: start;
+    position: relative;
+}
+
+
+
+
+
+
 @media (min-width: 1170px) {
     #background_container {
         background-image: inherit;
