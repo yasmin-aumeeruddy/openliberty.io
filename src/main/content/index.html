@@ -8,17 +8,22 @@ css: home
 <!-- INTRO -->
 <div id="intro_background">
     <div id="intro_background_image">
-        <img id="main_ufo" src="img/home_ufo_main.png">
+        <img id="ufo_main" src="img/home_ufo_main.png">
         <img id="beam" src="/img/home_beam.png">
-        <img id="person_1" src="/img/home_person.png">
-        <img id="computer" class="d-none d-lg-block" src="/img/home_computer.png">
-        <img id="ufo_1" class="d-none d-lg-block" src="/img/home_ufo_1.png">
-        <img id="ufo_2" class="d-none d-lg-block" src="/img/home_ufo_main.png">
-        <img id="hamster" class="d-none d-lg-block" src="/img/home_hamster.png">
-        <img id="headphones" class="d-none d-lg-block" src="/img/home_headphones.png">
-        <img id="girl" class="d-none d-lg-block" src="/img/home_girl.png">
-        <img id="fish" class="d-none d-lg-block" src="/img/home_fish.png">
-        <img id="fish_bowl" class="d-none d-lg-block" src="/img/home_fish_bowl.png">
+        <img id="cloud_1" class="d-none d-lg-block" src="/img/home_cloud_1.png">
+        <img id="cloud_2" class="d-none d-lg-block" src="/img/home_cloud_2.png">
+        <img id="person_1" src="/img/home_person_1.svg">
+        <img id="shoe" class="d-none d-lg-block" src="/img/home_shoe.svg">
+        <img id="coffee" src="/img/home_coffee.svg">
+        <img id="person_2" class="d-none d-lg-block" src="/img/home_person_2.svg">
+        <img id="dog" src="/img/home_dog.svg">
+        <img id="ball" src="/img/home_ball.svg">
+        <img id="computer" class="d-none d-lg-block" src="/img/home_computer.svg">
+        <img id="mouse" class="d-none d-lg-block" src="/img/home_mouse.svg">
+        <img id="phone" class="d-none d-lg-block" src="/img/home_phone.svg">
+        <img id="person_3" src="/img/home_person_3.svg">
+        <img id="ufo_small" class="d-none d-lg-block" src="/img/home_ufo_small.png">
+
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-8">
@@ -86,24 +91,26 @@ css: home
 <div id="quick_start_background">
     <div class="container">
         <div id="quick_start_row" class="row">
-            <div class="col-lg-4 col-md-12">
+            <div class="col-lg-12">
                 <h2 id="quick_start_title">Launch a sample app</h2>
                 <p id="quick_start_paragraph">
                     Open Liberty is fast and composable, but don’t 
                     take our word for it - try it out!
                 </p>
             </div>
-            <div class="col-lg-8 col-md-12">
+            <div class="col-lg-12">
                 <div id="code_container" class="text-left d-block mx-auto">
-                    git clone https://github.com/OpenLiberty/sample-getting-started.git
+                    git clone https://github.com/openliberty/sample-mpconf.git
                     <br>
-                    cd sample-getting-started
+                    cd sample-mpconf
                     <br>
-                    mvn clean package liberty:run-server
-                    <br>
-                    <br>
-                    <span id="sample_app_browser_link">Open browser to: <a class="light_green_link_light_background" target="new" href="http://localhost:9080">http://localhost:9080</a></span>
+                    mvn clean package -P start
                 </div>
+                <div id="sample_app_link_container">
+                    <p id="sample_app_browser_link">Then, open browser to  </p>
+                    <a id="local_host_link" target="_blank" href="http://localhost:9080">http://localhost:9080</a>
+                </div>
+
             </div>
         </div>
 

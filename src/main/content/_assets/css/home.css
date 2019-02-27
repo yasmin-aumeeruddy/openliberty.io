@@ -16,11 +16,11 @@
     background-repeat: no-repeat;
     background-size: 520px;
     background-position: 100%;
-    height: 1491px;
+    height: 1517px;
 }
 
 
-#main_ufo {
+#ufo_main {
     position: absolute;
     top: 82px;
     right: 175px;
@@ -30,74 +30,93 @@
 
 #beam {
     position: absolute;
-    top: 206px;
-    right: 352px;
+    top: 232px;
+    right: 346px;
     width: 1121px;
     height: 1285px;
+}
+
+#cloud_1 {
+    position: absolute;
+    top: 400px;
+    right: 0px;
+}
+
+#cloud_2 {
+    position: absolute;
+    top: 1060px;
+    right: 0px;
 }
 
 #person_1 {
     position: absolute;
     top: 310px;
-    right: 412px;
-    width: 282px;
-    height: 344px;
+    right: 371px;
+}
+
+#shoe {
+    position: absolute;
+    top: 550px;
+    right: 689px;
+}
+
+#coffee {
+    position: absolute;
+    top: 656px;
+    right: 420px;
+}
+
+#person_2 {
+    position: absolute;
+    top: 655px;
+    right: 620px;
+}
+
+#dog {
+    position: absolute;
+    top: 1010px;
+    right: 1010px;
+}
+
+#ball {
+    position: absolute;
+    top: 1038px;
+    right: 1036px;
 }
 
 #computer {
     position: absolute;
-    top: 620px;
-    right: 788px;
-    width: 139px;
-    height: 124px;
+    top: 1161px;
+    right: 860px;
 }
 
-#ufo_1 {
+#mouse {
     position: absolute;
-    top: 590px;
-    right: 245px;
+    top: 1103px;
+    right: 475px;
 }
 
-#ufo_2 {
+#phone {
+    position: absolute;
+    top: 1313px;
+    right: 530px;    
+}
+
+#person_3 {
+    position: absolute;
+    top: 1296px;
+    right: 615px;    
+    clip: rect(0px,237px,221px,0px);
+
+}
+
+#ufo_small {
     position: absolute;
     top: 1015px;
     right: 185px;
     width: 240px;
     height: 128px;
 }
-
-#hamster {
-    position: absolute;
-    top: 1040px;
-    right: 1140px;
-}
-
-#headphones {
-    position: absolute;
-    top: 865px;
-    right: 915px;
-}
-
-#girl {
-    position: absolute;
-    top: 1120px;
-    right: 700px;
-}
-
-#fish {
-    position: absolute;
-    top: 1035px;
-    right: 650px;
-    width: 190px;
-    height: 130px;
-}
-
-#fish_bowl {
-    position: absolute;
-    top: 1160px;
-    right: 535px;
-}
-
 
 #intro_content {
     position: relative;
@@ -218,8 +237,8 @@
     min-width: 280px;
 }
 
-#download_link:hover {
-    background-color: #C7EE63;
+#learn_link:hover {
+    background-color: #2C2E50;
 }
 
 #shooting_star_1 {
@@ -483,7 +502,6 @@
 
 #quick_start_background {
     position: relative;
-    background-color: #313653;
     color: white;
     padding-top: 96px;
 }
@@ -497,38 +515,71 @@
 } 
 
 #quick_start_title {
-    font-size: 35px;
+    font-size: 40px;
     font-family: BunueloLight;
+    color: #151629;
     margin-top: 0;
-    margin-bottom: 45px;
+    margin-bottom: 15px;
+    text-align: center;
 }
 
 #quick_start_paragraph {
-    display: inline-block;
+    font-size: 16px;
+    color: #151629;
     margin-bottom: 40px;
+    text-align: center;
 }
 
 #code_container {
     font-size: 20px;
-    color: #E6EDA8;
-    background-color: #151629;
+    color: #100F15;
+    background-color: #F1F4FE;
     padding-top: 56px;
     padding-left: 54px;
     padding-right: 54px;
     padding-bottom: 49px;
     max-width: 800px;
-    -webkit-box-shadow: -7px 6px 5px 0 rgba(14,15,35,0.29);
-    -moz-box-shadow: -7px 6px 5px 0 rgba(14,15,35,0.29);
-    box-shadow: -7px 6px 5px 0 rgba(14,15,35,0.29);
     border-radius:7px;
     cursor: text;
     overflow-wrap: break-word;
     word-wrap: break-word;
     line-height: 60px;
+    margin-bottom: 57px;
+}
+
+#sample_app_link_container {
+    text-align: center;
 }
 
 #sample_app_browser_link{
-    color: white;
+    display: inline-block;
+    font-size: 16px;
+    color: #151629;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+#local_host_link {
+    margin: auto;
+    margin-bottom: 73px;
+    width: 190px;
+    font-size: 16px;
+    font-weight: 500;
+    color:#4f660a;
+    background-color: white;
+    border:3px solid #abd155;
+    border-radius: 3px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 18px;
+    padding-right: 18px;
+    text-align: center;
+    transition: background-color .2s;    
+    min-width: 280px; 
+}
+
+#local_host_link:hover {
+    background-color: #abd155;
 }
 
 @media (max-width: 767.98px) {
