@@ -78,8 +78,8 @@
     position: absolute;
     top: 232px;
     right: 346px;
-    width: 1121px;
-    height: 1285px;
+    width: 1542px;
+    height: 1286px;
 }
 
 #cloud_1 {
@@ -230,6 +230,46 @@
     height: 128px;
 }
 
+#left_top_cloud {
+    position: absolute;
+    top: -50px;
+    right: calc(50% + 135px);
+}
+
+#left_mid_cloud {
+    position: absolute;
+    top: 215px;
+    right: calc(50% + 250px);
+}
+
+#right_top_cloud {
+    position: absolute;
+    top: -95px;
+    right: calc(50% - 765px);
+}
+
+#right_mid_cloud {
+    position: absolute;
+    top: 265px;
+    right: calc(50% - 760px);
+}
+
+#left_bottom_cloud {
+    position: absolute;
+    top: 530px;
+    right: calc(50% + 35px);
+    width: 242px;
+    height: 160px;
+}
+
+#right_bottom_cloud {
+    position: absolute;
+    top: 535px;
+    right: calc(50% - 275px);
+    width: 328px;
+    height: 160px;
+}
+
 #intro_content {
     position: relative;
     margin-top: 220px;
@@ -335,18 +375,18 @@
 
 #learn_link {
     display: block;
-    font-size: 20px;
+    font-size: 16px;
     color: #FFFFFF;
     background-color: #5E6B8D;
     border-radius: 3px;
     padding-top: 15px;
     padding-bottom: 15px;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 25px;
+    padding-right: 25px;
     margin-bottom: 189px;
     text-align: center;
     transition: background-color .2s;    
-    min-width: 280px;
+    width: 280px;
 }
 
 #learn_link:hover {
@@ -508,6 +548,14 @@
         animation: shooting_star_1_fly_md 15s infinite;
     }
 
+    .card {
+        width: 300px;
+    }
+
+    .card-body {
+        padding: 28px 29px 28px 29px;
+    }
+
 }
 
 @media (max-width: 991.98px) {
@@ -517,26 +565,27 @@
         height: 1130px;
     }
 
-    #main_ufo {
-        top: 144px;
-        right: 30px;
+    #ufo_main {
+        top: 140px;
+        right: 35px;
         width: 243px;
         height: 131px;
     }
     
     #beam {
+        top: 215px;
         right: 118px;
-        width: 672px;
-        height: 763px;
+        width: 925px;
+        height: 886px;
     }
+
+
     
     #person_1 {
         right: 165px;
         width: 172px;
         height: 210px;
     }
-
-
 
     #logo {
         margin-bottom: 10px;
@@ -551,6 +600,15 @@
         font-size: 11px;
         top: 75px;
         right: calc(50% - 145px);
+    }
+
+    #more_questions {
+        text-align: center;
+        padding-left: 0px;
+    }
+    
+    #learn_link {
+        margin: 0 auto;
     }
 
     #star1 {
@@ -572,6 +630,28 @@
         animation: shooting_star_1_fly_sm 15s infinite;
     }
 
+    #download_link {
+        margin-bottom: 112px;
+    }
+
+    #card1_col {
+        margin: 0px;
+    }
+
+    #card3_col {
+        margin: 0px;
+    }
+
+    .card {
+        width: 360px;
+        margin: 0 auto;
+        margin-bottom: 30px;
+    }
+    
+    .card-body {
+        padding: 35px 24px 44px 24px;
+    }
+    
 }
 
 @media (max-width: 767.98px) {
@@ -651,7 +731,7 @@
     padding-right: 54px;
     padding-bottom: 49px;
     max-width: 800px;
-    border-radius:7px;
+    border-radius: 7px;
     cursor: text;
     overflow-wrap: break-word;
     word-wrap: break-word;
@@ -668,6 +748,7 @@
     font-size: 16px;
     color: #151629;
     margin-bottom: 40px;
+    margin-right: 6px;
     text-align: center;
 }
 
@@ -685,6 +766,7 @@
     padding-bottom: 15px;
     padding-left: 18px;
     padding-right: 18px;
+    margin-left: 6px;
     text-align: center;
     transition: background-color .2s;    
     min-width: 280px; 
