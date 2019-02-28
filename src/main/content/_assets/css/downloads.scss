@@ -22,6 +22,10 @@
     color: #2C2E50;
 }
 
+#fork_button:hover {
+    border: 1px solid #E6EDA8;
+}
+
 @media (max-width: 991.98px) {
     .navbar-dark .navbar-nav .nav-link, .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:active, #fork_button {
         font-family: BunueloLight;

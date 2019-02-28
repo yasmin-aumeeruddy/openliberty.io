@@ -9,6 +9,52 @@
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
  
+/* Nav bar color corrections for light page */
+.navbar-dark .navbar-nav .nav-link {
+    color: #5E6B8D;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #24253A;
+}
+
+#ol_nav_title {
+    color: #2C2E50;
+}
+
+#fork_button:hover {
+    border: 1px solid #E6EDA8;
+}
+
+@media (max-width: 991.98px) {
+    .navbar-dark .navbar-nav .nav-link, .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:active, #fork_button {
+        font-family: BunueloLight;
+        font-size: 35px;
+        color: #FFFFFF;
+        margin-right: 26px;
+        margin-left: 26px;
+    }
+
+    #fork_button {
+        border: none;
+        padding-left: 0;
+        padding-top: 8px;
+        padding-bottom: 27px;
+        border-bottom: 1px solid rgba(201, 214, 254, 0.35);
+        border-radius: 0px;
+    }
+    
+    #fork_button:hover {
+        color: #FFFFFF;
+        border: none;
+        border-bottom: 1px solid rgba(201, 214, 254, 0.35);
+    }
+    
+    #fork_button {
+        display: block;
+    }
+}
+
 /* INTRO */
 
 #intro_background_image {
@@ -51,55 +97,121 @@
 #person_1 {
     position: absolute;
     top: 310px;
-    right: 371px;
+    right: 382px;
+    width: 238px;
+    height: 309px;
+    animation: person_hovering 5s infinite;
+}
+
+@keyframes person_hovering {
+    50% {
+        transform: translateY(25px) translateX(-10px) rotate(2deg);
+    }
 }
 
 #shoe {
     position: absolute;
     top: 550px;
     right: 689px;
+    animation: shoe_hovering 4.5s infinite;
+}
+
+@keyframes shoe_hovering {
+    50% {
+        transform: translateY(12px) translateX(-4px) rotate(-1deg);
+    }
 }
 
 #coffee {
     position: absolute;
     top: 656px;
     right: 420px;
+    animation: coffee_hovering 3.5s infinite;
+}
+
+@keyframes coffee_hovering {
+    50% {
+        transform: translateY(-10px) translateX(-4px) rotate(-3deg);
+    }
 }
 
 #person_2 {
     position: absolute;
     top: 655px;
     right: 620px;
+    animation: person_2_hovering 4.5s infinite;
+}
+
+@keyframes person_2_hovering {
+    50% {
+        transform: translateY(25px) translateX(-5px);
+    }
 }
 
 #dog {
     position: absolute;
     top: 1010px;
     right: 1010px;
+    animation: dog_hovering 3.5s infinite;
+
+}
+
+@keyframes dog_hovering {
+    50% {
+        transform: translateY(25px) translateX(-10px);
+    }
 }
 
 #ball {
     position: absolute;
     top: 1038px;
     right: 1036px;
+    animation: ball_hovering 3.6s infinite;
+}
+
+@keyframes ball_hovering {
+    50% {
+        transform: translateY(25px) translateX(-10px);
+    }
 }
 
 #computer {
     position: absolute;
     top: 1161px;
     right: 860px;
+    animation: computer_hovering 5.5s infinite;
+}
+
+@keyframes computer_hovering {
+    50% {
+        transform: translateY(15px) translateX(-9px) rotate(2deg);
+    }
 }
 
 #mouse {
     position: absolute;
     top: 1103px;
     right: 475px;
+    animation: mouse_hovering 5.5s infinite;
+}
+
+@keyframes mouse_hovering {
+    50% {
+        transform: translateY(15px) translateX(-5px) rotate(5deg);
+    }
 }
 
 #phone {
     position: absolute;
     top: 1313px;
-    right: 530px;    
+    right: 522px;    
+    animation: phone_hovering 5s infinite;
+}
+
+@keyframes phone_hovering {
+    50% {
+        transform: translateY(-20px) translateX(-9px) rotate(-5deg);
+    }
 }
 
 #person_3 {
@@ -597,7 +709,8 @@
 /* GUIDES */
 #guides_container {
     padding-top: 154px;
-    padding-bottom: 151px;
+    padding-bottom: 143px;
+    color: #3F4659;
 }
 
 #guides_title {
@@ -622,17 +735,16 @@
     font-size: 20px;
     font-weight: 500;
     color: #24253A;
-    background-color: #E6EDA8;
+    background-color: #ABD155;
     border-radius: 3px;
     padding: 15px 40px;
-    margin-bottom: 8px;
     text-align: center;
     transition: background-color .2s;    
     min-width: 280px;
 }
 
 #guides_link:hover {
-    background-color: #F7FBD2;
+    background-color: #C7EE63;
 }
 
 #guides_ufo {
@@ -651,7 +763,7 @@
 }
 
 #collaborate_container {
-    padding-top: 30px;
+    padding-top: 104px;
     margin-bottom: 50px;
     padding-bottom: 151px;
 }
