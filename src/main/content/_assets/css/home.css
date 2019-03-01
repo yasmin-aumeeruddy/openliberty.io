@@ -723,20 +723,35 @@
 }
 
 #code_container {
+    font-family: Courier;
     font-size: 20px;
     color: #100F15;
     background-color: #F1F4FE;
-    padding-top: 56px;
+    padding-top: 23px;
     padding-left: 54px;
     padding-right: 54px;
     padding-bottom: 49px;
-    max-width: 800px;
+    max-width: 900px;
     border-radius: 7px;
     cursor: text;
     overflow-wrap: break-word;
     word-wrap: break-word;
     line-height: 60px;
     margin-bottom: 57px;
+}
+
+#copy_message {
+    text-align: right;
+    font-size: 11px;
+    color: #5E6B8D;
+    height: 24px;
+    margin-bottom: 23px;
+}
+
+#copy_img {
+    width: 18px;
+    height: 21px;
+    margin-left: 11px;
 }
 
 #sample_app_link_container {

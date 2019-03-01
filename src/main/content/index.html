@@ -103,13 +103,14 @@ css: home
                 </p>
             </div>
             <div class="col-lg-12">
-                <div id="code_container" class="text-left d-block mx-auto">
+                <a id="code_container" class="text-left d-block mx-auto">
+                    <div id="copy_message">Click to copy<img id="copy_img" src="/img/guide_copy_button.svg"></div>
                     git clone https://github.com/openliberty/sample-mpconf.git
                     <br>
                     cd sample-mpconf
                     <br>
                     mvn clean package -P start
-                </div>
+                </a>
                 <div id="sample_app_link_container">
                     <p id="sample_app_browser_link">Then, open browser to </p>
                     <a id="local_host_link" target="_blank" href="http://localhost:9080">http://localhost:9080</a>

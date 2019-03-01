@@ -22,3 +22,29 @@ $(document).ready(function() {
 
     });
 });
+
+
+$('#code_container').click(function(event) {
+    console.log("function called");
+    target = event.currentTarget;
+    copy_original = $('#copy_message').html();
+    console.log(copy_original);
+    event.preventDefault();
+    window.getSelection().selectAllChildren(target);
+    if(document.execCommand('copy')) {
+        window.getSelection().removeAllRanges();
+
+        $('#code_container').css("background-color", "#EFF4CA");
+        setTimeout(function(){
+            $('#code_container').css("background-color", "#F1F4FE");
+        }, 1000);
+
+        $('#copy_message').text("Copied to clipboard");
+        setTimeout(function(){
+            $('#copy_message').html(copy_original);
+        }, 1000);
+    } else {
+        alert('To copy press CTRL + C');
+    }
+
+});
