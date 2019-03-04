@@ -32,17 +32,18 @@ $('#code_container').click(function(event) {
     event.preventDefault();
     window.getSelection().selectAllChildren(target);
     if(document.execCommand('copy')) {
-        window.getSelection().removeAllRanges();
+        window.getSelection().removeAllRanges(); 
 
         $('#code_container').css("background-color", "#EFF4CA");
+        $('#code_container').css("color", "#ABD155");
+        $('#copy_message').text("Copied to clipboard!");
+
         setTimeout(function(){
             $('#code_container').css("background-color", "#F1F4FE");
-        }, 1000);
-
-        $('#copy_message').text("Copied to clipboard");
-        setTimeout(function(){
+            $('#code_container').css("color", "#100F15");
             $('#copy_message').html(copy_original);
         }, 1000);
+
     } else {
         alert('To copy press CTRL + C');
     }

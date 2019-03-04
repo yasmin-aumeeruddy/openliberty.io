@@ -100,12 +100,13 @@
     right: 382px;
     width: 238px;
     height: 309px;
-    animation: person_hovering 5s infinite;
+    animation: person_hovering 4.5s infinite;
+    animation-timing-function: linear;
 }
 
 @keyframes person_hovering {
     50% {
-        transform: translateY(25px) translateX(-10px) rotate(2deg);
+        transform: translateY(25px) translateX(-10px) rotate(4deg);
     }
 }
 
@@ -113,12 +114,13 @@
     position: absolute;
     top: 550px;
     right: 689px;
-    animation: shoe_hovering 4.5s infinite;
+    animation: shoe_hovering 3.5s infinite;
+    animation-timing-function: linear;
 }
 
 @keyframes shoe_hovering {
     50% {
-        transform: translateY(12px) translateX(-4px) rotate(-1deg);
+        transform: translateY(12px) translateX(-4px) rotate(-4deg);
     }
 }
 
@@ -126,12 +128,13 @@
     position: absolute;
     top: 656px;
     right: 420px;
-    animation: coffee_hovering 3.5s infinite;
+    animation: coffee_hovering 4s infinite;
+    animation-timing-function: linear;
 }
 
 @keyframes coffee_hovering {
     50% {
-        transform: translateY(-10px) translateX(-4px) rotate(-3deg);
+        transform: translateY(-15px) translateX(-6px) rotate(-3deg);
     }
 }
 
@@ -140,11 +143,12 @@
     top: 655px;
     right: 620px;
     animation: person_2_hovering 4.5s infinite;
+    animation-timing-function: linear;
 }
 
 @keyframes person_2_hovering {
     50% {
-        transform: translateY(25px) translateX(-5px);
+        transform: translateY(25px) translateX(-5px) rotate(-2deg);
     }
 }
 
@@ -153,12 +157,12 @@
     top: 1010px;
     right: 1010px;
     animation: dog_hovering 3.5s infinite;
-
+    animation-timing-function: linear;
 }
 
 @keyframes dog_hovering {
     50% {
-        transform: translateY(25px) translateX(-10px);
+        transform: translateY(25px) translateX(-10px) rotate(2deg);
     }
 }
 
@@ -167,11 +171,12 @@
     top: 1038px;
     right: 1036px;
     animation: ball_hovering 3.6s infinite;
+    animation-timing-function: linear;
 }
 
 @keyframes ball_hovering {
     50% {
-        transform: translateY(25px) translateX(-10px);
+        transform: translateY(25px) translateX(-10px) rotate(12deg);
     }
 }
 
@@ -180,11 +185,12 @@
     top: 1161px;
     right: 860px;
     animation: computer_hovering 5.5s infinite;
+    animation-timing-function: linear;
 }
 
 @keyframes computer_hovering {
     50% {
-        transform: translateY(15px) translateX(-9px) rotate(2deg);
+        transform: translateY(15px) translateX(-9px) rotate(5deg);
     }
 }
 
@@ -193,6 +199,7 @@
     top: 1103px;
     right: 475px;
     animation: mouse_hovering 5.5s infinite;
+    animation-timing-function: linear;
 }
 
 @keyframes mouse_hovering {
@@ -206,11 +213,12 @@
     top: 1313px;
     right: 522px;    
     animation: phone_hovering 5s infinite;
+    animation-timing-function: linear;
 }
 
 @keyframes phone_hovering {
     50% {
-        transform: translateY(-20px) translateX(-9px) rotate(-5deg);
+        transform: translateY(-20px) translateX(-9px) rotate(-15deg);
     }
 }
 
@@ -393,113 +401,54 @@
     background-color: #2C2E50;
 }
 
-#shooting_star_1 {
-    position: absolute;
-    top: 280px;
-    right: calc(50% + 500px);
-    animation: shooting_star_1_fly_lg 20s infinite;
-}
 
-
-@keyframes shooting_star_1_fly_lg {
-    0% {
-        opacity: 0;
-    }
-    30% {
-        opacity: 0;
-        top: 280px;
-        transform: translateX(-30px);
-    }
-    33% {
-        opacity: 1;
-    }
-    37% {
-        opacity: 0;
-        top: 120px;
-        transform: translateX(600px);
-    }
-    100% {
-        opacity: 0;
-    }
-}
-
-@keyframes shooting_star_1_fly_md {
-    0% {
-        opacity: 0;
-    }
-    30% {
-        opacity: 0;
-        top: 200px;
-        transform: translateX(50px);
-    }
-    33% {
-        opacity: 1;
-    }
-    37% {
-        opacity: 0;
-        top: 100px;
-        transform: translateX(560px);
-    }
-    100% {
-        opacity: 0;
-    }
-}
-
-@keyframes shooting_star_1_fly_sm {
-    0% {
-        opacity: 0;
-    }
-    30% {
-        opacity: 0;
-        top: 120px;
-        transform: translateX(170px);
-    }
-    33% {
-        opacity: 1;
-    }
-    37% {
-        opacity: 0;
-        top: 70px;
-        transform: translateX(550px);
-    }
-    100% {
-        opacity: 0;
-    }
+.star {
+    width: 4px;
+    height: 4px;
+    background-color: #C8D2D2;
+    border-radius: 50%; 
 }
 
 #star1 {
     position: absolute;
-    top: 430px;
-    right: calc(50% - 550px);
+    top: 250px;
+    right: calc(50% - 535px);
     animation: blink 3s infinite;
 }
 
 #star2 {
     position: absolute;
-    top: 240px;
-    right: calc(50% - 180px);
+    top: 261px;
+    right: calc(50% - 540px);
     animation: blink 4s infinite;
 }
 
 #star3 {
     position: absolute;
-    top: 110px;
-    right: calc(50% + 420px);
+    top: 430px;
+    right: calc(50% - 420px);
     animation: blink 5s infinite;
 }
 
 #star4 {
     position: absolute;
-    top: 620px;
-    right: calc(50% + 660px);
+    top: 637px;
+    right: calc(50% - 410px);
     animation: blink 6s infinite;
 }
 
 #star5 {
     position: absolute;
-    top: 330px;
-    right: calc(50% + 630px);
+    top: 653px;
+    right: calc(50% - 395px);
     animation: blink 7s infinite;
+}
+
+#star6 {
+    position: absolute;
+    top: 678px;
+    right: calc(50% - 565px);
+    animation: blink 8s infinite;
 }
 
 @keyframes blink {
@@ -526,26 +475,6 @@
     #an_ibm_open_source_project {
         top: 83px;
         right: calc(50% - 190px);
-    }
-
-    #star1 {
-        top: 400px;
-        right: calc(50% - 480px);
-    }
-
-    #star2 {
-        top: 210px;
-        right: calc(50% - 140px);
-    }
-
-    #star3 {
-        position: absolute;
-        top: 110px;
-        right: calc(50% + 380px);
-    }
-
-    #shooting_star_1 {
-        animation: shooting_star_1_fly_md 15s infinite;
     }
 
     .card {
@@ -578,8 +507,6 @@
         width: 925px;
         height: 886px;
     }
-
-
     
     #person_1 {
         right: 165px;
@@ -609,25 +536,6 @@
     
     #learn_link {
         margin: 0 auto;
-    }
-
-    #star1 {
-        top: 320px;
-        right: calc(50% - 370px);
-    }
-
-    #star2 {
-        top: 170px;
-        right: calc(50% - 130px);
-    }
-
-    #star3 {
-        top: 80px;
-        right: calc(50% + 300px);
-    }
-
-    #shooting_star_1 {
-        animation: shooting_star_1_fly_sm 15s infinite;
     }
 
     #download_link {
@@ -741,6 +649,7 @@
 }
 
 #copy_message {
+    font-family: Asap;
     text-align: right;
     font-size: 11px;
     color: #5E6B8D;
@@ -861,7 +770,7 @@
 
 #collaborate_container {
     padding-top: 104px;
-    margin-bottom: 50px;
+    margin-bottom: 90px;
     padding-bottom: 151px;
 }
 
@@ -936,12 +845,48 @@
     margin-left: 42px;
 }
 
+#spaceship {
+    position: absolute;
+    top: 190px;
+    right: calc(50% + 300px);
+    width: 274px;
+    height: 111px;
+}
+
+#connect_left_top_cloud {
+    position: absolute;
+    top: -165px;
+    right: calc(50% + 135px);
+}
+
+#connect_left_mid_cloud {
+    position: absolute;
+    top: 190px;
+    right: calc(50% + 385px);
+    width: 483px;
+    height: 183px;
+}
+
+#connect_right_top_cloud {
+    position: absolute;
+    top: -190px;
+    right: calc(50% - 720px);
+}
+
+#connect_right_mid_cloud {
+    position: absolute;
+    top: -65px;
+    right: calc(50% - 775px);
+    width: 483px;
+    height: 183px;
+}
+
 #connect_title {
     font-size: 35px;
     font-family: BunueloLight;
     text-align: center;
     margin-top: 0;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
     line-height: 55px;
 }
 
