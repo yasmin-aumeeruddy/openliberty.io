@@ -20,22 +20,22 @@ css: home
         <img id="cloud_2" class="d-none d-lg-block" src="/img/home_cloud_2.png">
         <img id="person_1" src="/img/home_person_1.svg">
         <img id="shoe" class="d-none d-lg-block" src="/img/home_shoe.svg">
-        <img id="coffee" src="/img/home_coffee.svg">
+        <img id="coffee" class="d-none d-md-block" src="/img/home_coffee.svg">
         <img id="person_2" class="d-none d-lg-block" src="/img/home_person_2.svg">
-        <img id="dog" src="/img/home_dog.svg">
-        <img id="ball" src="/img/home_ball.svg">
+        <img id="dog" class="d-none d-md-block" src="/img/home_dog.svg">
+        <img id="ball" class="d-none d-md-block" src="/img/home_ball.svg">
         <img id="computer" class="d-none d-lg-block" src="/img/home_computer.svg">
         <img id="mouse" class="d-none d-lg-block" src="/img/home_mouse.svg">
         <img id="phone" class="d-none d-lg-block" src="/img/home_phone.svg">
-        <img id="person_3" src="/img/home_person_3.svg">
+        <img id="person_3" class="d-none d-md-block" src="/img/home_person_3.svg">
         <img id="ufo_small" class="d-none d-lg-block" src="/img/home_ufo_small.png">
 
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-md-8">
+                <div class="col-lg-6 col-md-7">
                     <div id="intro_content">
-                        <img id="intro_logo" src="{{ "/img/logo.svg" | relative }}" class="img-fluid" alt="Open Liberty: An IBM open source project">
-                        <div id="an_ibm_open_source_project">An IBM Open Source Project</div>
+                        <img id="intro_logo" src="{{ "/img/logo.svg" | relative }}" class="img-fluid d-none d-md-block" alt="Open Liberty: An IBM open source project">
+                        <div id="an_ibm_open_source_project" class="d-none d-md-block">An IBM Open Source Project</div>
                         <h3 id="intro_lighten_up_title">Jump on board and work at lightspeed</h3>
                         <p id="intro_paragraph">
                             Build cloud-native apps and microservices while running only what you need.
@@ -88,12 +88,12 @@ css: home
 <!-- QUICK START -->
 <div id="quick_start_background">
     <div class="container">
-        <img id="left_top_cloud" src="/img/home_left_top_cloud.png">
-        <img id="left_mid_cloud" src="/img/home_left_mid_cloud.png">
-        <img id="right_top_cloud" src="/img/home_right_top_cloud.png">
-        <img id="right_mid_cloud" src="/img/home_right_mid_cloud.png">
-        <img id="left_bottom_cloud" src="/img/home_left_bottom_cloud.png">
-        <img id="right_bottom_cloud" src="/img/home_right_bottom_cloud.png">
+        <img id="left_top_cloud" class="d-none d-md-block" src="/img/home_left_top_cloud.png">
+        <img id="left_mid_cloud" class="d-none d-md-block" src="/img/home_left_mid_cloud.png">
+        <img id="right_top_cloud" class="d-none d-md-block" src="/img/home_right_top_cloud.png">
+        <img id="right_mid_cloud" class="d-none d-md-block" src="/img/home_right_mid_cloud.png">
+        <img id="left_bottom_cloud" class="d-none d-md-block" src="/img/home_left_bottom_cloud.png">
+        <img id="right_bottom_cloud" class="d-none d-md-block" src="/img/home_right_bottom_cloud.png">
         <div id="quick_start_row" class="row">
             <div class="col-lg-12">
                 <h2 id="quick_start_title">Launch a microservices app</h2>
@@ -102,13 +102,13 @@ css: home
                     take our word for it - try it out!
                 </p>
             </div>
-            <div class="col-lg-12">
+            <div id="code_box_column" class="col-lg-12">
                 <a id="code_container" class="text-left d-block mx-auto">
-                    <div id="copy_message">Click to copy<img id="copy_img" src="/img/guide_copy_button.svg"></div>
+                    <div id="copy_message">Click to copy<img id="copy_img" src="/img/home_copy_button.svg"></div>
                     git clone https://github.com/openliberty/sample-mpconf.git
-                    <br>
+                    <br><br>
                     cd sample-mpconf
-                    <br>
+                    <br><br>
                     mvn clean package -P start
                 </a>
                 <div id="sample_app_link_container">
@@ -121,7 +121,7 @@ css: home
 
         <div id="guides_container" class="container">
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-4">
                     <h2 id="guides_title">Set course for Open Liberty guides</h2>
                     <p id="guides_description">
                         Your sample app looks great - but what next? 
@@ -134,8 +134,8 @@ css: home
                         <a id="guides_link" href="/guides">View all Open Liberty guides</a>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <img id="guides_ufo" src="{{ "/img/homepage_ufo.png" | relative }}" class="img-fluid d-block mx-auto" alt="Two UFOs working together to adjust the ring of a planet">
+                <div class="col-lg-8">
+                    <img id="guide_screenshot" src="{{ "/img/home_guide_screenshot.png" | relative }}" class="img-fluid d-none d-lg-block mx-auto" alt="guide screenshot">
                 </div>
             </div>
         </div>        
@@ -184,7 +184,7 @@ css: home
                 </div>
             </div>
             <div id="get_involved_images" class="col-md-6 order-md-1">
-                <img src="{{ "/img/find_crew_ufo.png" | relative }}" class="img-fluid" alt="UFO">                
+                <img src="{{ "/img/find_crew_ufo.png" | relative }}" class="img-fluid d-none d-md-block" alt="UFO">                
             </div>            
         </div>
     </div>

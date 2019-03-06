@@ -55,6 +55,12 @@
     }
 }
 
+@media (max-width: 767.98px) {
+    .navbar-dark .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(44, 46, 80)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    }
+}
+
 /* INTRO */
 
 #intro_background_image {
@@ -320,7 +326,7 @@
     margin-bottom: 189px;
     text-align: center;
     transition: background-color .2s;    
-    min-width: 280px;
+    width: 280px;
 }
 
 #download_link:hover {
@@ -359,10 +365,10 @@
 
 .card-title {
     font-family: BunueloLight;
-    font-size: 40px;
+    font-size: 35px;
     color: #151629;
     letter-spacing: 0;
-    margin-bottom: 2px;
+    margin-bottom: 5px;
 }
 
 .card-text {
@@ -466,6 +472,96 @@
     }
 }
 
+@media (max-width: 1300px) {
+    #intro_background_image {
+        background-size: 400px;
+    }
+
+    #star1 {
+        right: calc(50% - 655px);
+    }
+    
+    #star2 {
+        right: calc(50% - 660px);
+    }
+    
+    #star3 {
+        right: calc(50% - 540px);
+    }
+    
+    #star4 {
+        right: calc(50% - 530px);
+    }
+    
+    #star5 {
+        right: calc(50% - 515px);
+    }
+    
+    #star6 {
+        right: calc(50% - 685px);
+    }
+
+    #ufo_main {
+        right: 55px;
+    }
+
+    #beam {
+        right: 226px;
+    }
+
+    #cloud_1 {
+        right: -120px;
+    }
+
+    #cloud_2 {
+        right: -120px;
+    }
+
+    #person_1 {
+        right: 262px;
+    }
+
+    #shoe {
+        right: 569px;
+    }
+
+    #coffee {
+        right: 300px;
+    }
+    
+    #person_2 {
+        right: 500px;
+    }
+
+    #dog {
+        right: 890px;
+    }
+
+    #ball {
+        right: 916px;
+    }
+
+    #computer {
+        right: 740px;
+    }
+
+    #mouse {
+        right: 355px;
+    }
+
+    #phone {
+        right: 402px;
+    }
+
+    #person_3 {
+        right: 495px;
+    }
+
+    #ufo_small {
+        right: 65px;
+    }
+}
+
 @media (max-width: 1199.98px) {
 
     #intro_paragraph {
@@ -509,33 +605,50 @@
     }
     
     #person_1 {
-        right: 165px;
+        right: 148px;
         width: 172px;
         height: 210px;
     }
 
-    #logo {
-        margin-bottom: 10px;
-        width: 400px;
+    #coffee {
+        right: 185px;
+        width: 59px;
+        height: 75px;
+    }
+
+    #dog {
+        top: 710px;
+        right: 480px;
+        width: 167px;
+        height: 160px;
+    }
+
+    #ball {
+        top: 738px;
+        right: 530px;
+        width: 25px;
+        height: 25px;
+    }
+
+    #person_3 {
+        top: 900px;
+        right: 585px;
+        width: 170px;
+        height: 206px;
+        -moz-transform: scale(-1, 1);
+        -o-transform: scale(-1, 1);
+        -webkit-transform: scale(-1, 1);
+        transform: scale(-1, 1);
     }
 
     #intro_content {
-        margin-top: 76px;
+        margin-top: 86px;
     }
 
     #an_ibm_open_source_project {
         font-size: 11px;
         top: 75px;
         right: calc(50% - 145px);
-    }
-
-    #more_questions {
-        text-align: center;
-        padding-left: 0px;
-    }
-    
-    #learn_link {
-        margin: 0 auto;
     }
 
     #download_link {
@@ -548,6 +661,7 @@
 
     #card3_col {
         margin: 0px;
+        margin-bottom: 85px;
     }
 
     .card {
@@ -559,17 +673,58 @@
     .card-body {
         padding: 35px 24px 44px 24px;
     }
+
+    #more_questions {
+        text-align: center;
+        padding-left: 0px;
+    }
+    
+    #learn_link {
+        margin: 0 auto;
+    }
     
 }
 
 @media (max-width: 767.98px) {
 
+    h2, h3 {
+        text-align: center;
+    }
+
     #intro_background {
         padding-bottom: 30px;
     }
 
+    #intro_background_image {
+        background-position-y: 415px;
+        background-size: 100%;
+        height: 1479px;
+    }
+
+    #ufo_main {
+        top: 460px;
+        right: 10px;
+    }
+
+    #beam {
+        top: 530px;
+        right: 93px;
+        height: 949px;
+    }
+
+    #person_1 {
+        top: 610px;
+        right: 110px;
+    }
+
+    #intro_lighten_up_title {
+        margin-bottom: 28px;
+    }
+
     #intro_paragraph {
-        margin-bottom: 60px;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-bottom: 18px;
     }
 
     #download_links_container {
@@ -579,19 +734,31 @@
     #download_link {
         margin-left: auto;
         margin-right: auto;
-        max-width: 300px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        width: 225px;
     }
 
-    #intro_logo {
-        width: 100%; 
-        margin-bottom: 5px;
+    #card1_col {
+        margin-top: 400px;
+    }
+    
+    #card3_col {
+        margin-bottom: 32px;
     }
 
-    #an_ibm_open_source_project {
-        font-size: 14px;
+    .card {
+        width: 285px;
+        margin-bottom: 12px;
+    }
+
+    .card-body {
+        padding: 27px 15px 44px 15px;
+    }
+
+    .card-title {
         text-align: center;
-        position: static;
-        margin-bottom: 30px;
+        margin-bottom: 5px;
     }
 
 }
@@ -615,7 +782,7 @@
 } 
 
 #quick_start_title {
-    font-size: 40px;
+    font-size: 35px;
     font-family: BunueloLight;
     color: #151629;
     margin-top: 0;
@@ -638,13 +805,12 @@
     padding-top: 23px;
     padding-left: 54px;
     padding-right: 54px;
-    padding-bottom: 49px;
+    padding-bottom: 72px;
     max-width: 900px;
     border-radius: 7px;
     cursor: text;
     overflow-wrap: break-word;
     word-wrap: break-word;
-    line-height: 60px;
     margin-bottom: 57px;
 }
 
@@ -700,15 +866,45 @@
     background-color: #abd155;
 }
 
-@media (max-width: 767.98px) {
-
-    #code_container{
-        width: 100%;
-        height: auto;
+@media (max-width: 991.98px) {
+    #quick_start_row {
+        margin-top: 255px;
     }
+}
+
+
+@media (max-width: 767.98px) {
 
     #quick_start_background {
         padding-top: 60px;
+    }
+
+    #quick_start_row {
+        margin-top: 160px;
+    }
+
+    #code_box_column {
+        padding: 0px;
+    }
+
+    #code_container{
+        font-size: 16px;
+        width: 100%;
+        height: auto;
+        padding-top: 23px;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-bottom: 32px;
+        margin-bottom: 27px;
+    }
+
+    #copy_message {
+        margin-bottom: 0px;
+    }
+
+    #sample_app_browser_link {
+        margin-bottom: 25px;
+        display: block;
     }
 }
 
@@ -723,6 +919,7 @@
     font-size: 35px;
     font-family: BunueloLight;
     margin-bottom: 31px;
+    margin-top: 30px;
 }
 
 #guides_description {
@@ -738,23 +935,33 @@
 
 #guides_link {
     display: block;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 500;
     color: #24253A;
     background-color: #ABD155;
     border-radius: 3px;
-    padding: 15px 40px;
+    padding: 15px 35px;
     text-align: center;
     transition: background-color .2s;    
-    min-width: 280px;
+    width: 275px;
 }
 
 #guides_link:hover {
     background-color: #C7EE63;
 }
 
-#guides_ufo {
-    margin-top: 65px;
+@media (max-width: 991.98px) {
+    #guides_title {
+        margin-top: 0px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    #guides_container {
+        padding-top: 100px;
+        padding-bottom: 50px;
+    }
+
 }
 
 
@@ -822,12 +1029,14 @@
         padding-bottom: 50px;
     }
 
-    #collaborate_image {
-        padding: 20px;
+    .collaborate_link {
+        font-size: 16px;
+        width: 260px;
+        margin: 0 auto;
     }
 
     #collaborate_get_involved {
-        margin-top: 200px;
+        margin-top: 54px;
     }
 }
 
@@ -983,9 +1192,8 @@
         margin-top: 0;
     }
 
-    #connect_planet_image {
-        padding: 20px;
-        padding-bottom: 0;
+    #connect_paragraph_1, #connect_paragraph_2 {
+        text-align: left;
     }
 
 }

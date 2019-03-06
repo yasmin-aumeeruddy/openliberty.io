@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="21px" viewBox="0 0 18 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>copy--glyph copy</title>
+    <desc>Created with Sketch.</desc>
+    <g id="v1_Homepage_Main" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="5_Homepage_Mobile_v1/2" transform="translate(-273.000000, -1818.000000)" fill="#5E6B8D" fill-rule="nonzero">
+            <g id="copy--glyph-copy" transform="translate(273.000000, 1818.000000)">
+                <g id="Layer_1">
+                    <g id="Group">
+                        <path d="M12.8571429,5.25 L12.8571429,1 C12.8571429,0.44771525 12.4094276,-1.01453063e-16 11.8571429,0 L1,0 C0.44771525,1.01453063e-16 -6.76353751e-17,0.44771525 0,1 L0,14.75 C6.76353751e-17,15.3022847 0.44771525,15.75 1,15.75 L5.14285714,15.75 L5.14285714,20 C5.14285714,20.5522847 5.59057239,21 6.14285714,21 L17,21 C17.5522847,21 18,20.5522847 18,20 L18,6.25 C18,5.69771525 17.5522847,5.25 17,5.25 L12.8571429,5.25 Z M5.14285714,13.125 L2.57142857,13.125 L2.57142857,2.625 L10.2857143,2.625 L10.2857143,5.25 L6.14285714,5.25 C5.59057239,5.25 5.14285714,5.69771525 5.14285714,6.25 L5.14285714,13.125 Z M15.4285714,18.375 L7.71428571,18.375 L7.71428571,7.875 L15.4285714,7.875 L15.4285714,18.375 Z" id="Shape"></path>
+                        <rect id="Rectangle-path" x="9" y="9.1875" width="5.14285714" height="2.625" rx="1"></rect>
+                        <rect id="Rectangle-path" x="9" y="13.125" width="5.14285714" height="2.625" rx="1"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
