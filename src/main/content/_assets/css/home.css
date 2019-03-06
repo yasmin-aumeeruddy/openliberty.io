@@ -71,6 +71,69 @@
     height: 1517px;
 }
 
+.star {
+    width: 4px;
+    height: 4px;
+    background-color: #C8D2D2;
+    border-radius: 50%; 
+}
+
+#star1 {
+    position: absolute;
+    top: 250px;
+    right: calc(50% - 535px);
+    animation: blink 3s infinite;
+}
+
+#star2 {
+    position: absolute;
+    top: 261px;
+    right: calc(50% - 540px);
+    animation: blink 4s infinite;
+}
+
+#star3 {
+    position: absolute;
+    top: 430px;
+    right: calc(50% - 420px);
+    animation: blink 5s infinite;
+}
+
+#star4 {
+    position: absolute;
+    top: 637px;
+    right: calc(50% - 410px);
+    animation: blink 6s infinite;
+}
+
+#star5 {
+    position: absolute;
+    top: 653px;
+    right: calc(50% - 395px);
+    animation: blink 7s infinite;
+}
+
+#star6 {
+    position: absolute;
+    top: 678px;
+    right: calc(50% - 565px);
+    animation: blink 8s infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
 
 #ufo_main {
     position: absolute;
@@ -244,46 +307,6 @@
     height: 128px;
 }
 
-#left_top_cloud {
-    position: absolute;
-    top: -50px;
-    right: calc(50% + 135px);
-}
-
-#left_mid_cloud {
-    position: absolute;
-    top: 215px;
-    right: calc(50% + 250px);
-}
-
-#right_top_cloud {
-    position: absolute;
-    top: -95px;
-    right: calc(50% - 765px);
-}
-
-#right_mid_cloud {
-    position: absolute;
-    top: 265px;
-    right: calc(50% - 760px);
-}
-
-#left_bottom_cloud {
-    position: absolute;
-    top: 530px;
-    right: calc(50% + 35px);
-    width: 242px;
-    height: 160px;
-}
-
-#right_bottom_cloud {
-    position: absolute;
-    top: 535px;
-    right: calc(50% - 275px);
-    width: 328px;
-    height: 160px;
-}
-
 #intro_content {
     position: relative;
     margin-top: 220px;
@@ -294,6 +317,13 @@
     height: 101px;
     width: 502px;
     margin-bottom: 48px;
+}
+
+#an_ibm_open_source_project {
+    position: absolute;
+    font-size: 14px;
+    top: 87px;
+    right: calc(50% - 185px);
 }
 
 #intro_lighten_up_title {
@@ -331,13 +361,6 @@
 
 #download_link:hover {
     background-color: #C7EE63;
-}
-
-#an_ibm_open_source_project {
-    position: absolute;
-    font-size: 14px;
-    top: 87px;
-    right: calc(50% - 185px);
 }
 
 #card1_col {
@@ -405,71 +428,6 @@
 
 #learn_link:hover {
     background-color: #2C2E50;
-}
-
-
-.star {
-    width: 4px;
-    height: 4px;
-    background-color: #C8D2D2;
-    border-radius: 50%; 
-}
-
-#star1 {
-    position: absolute;
-    top: 250px;
-    right: calc(50% - 535px);
-    animation: blink 3s infinite;
-}
-
-#star2 {
-    position: absolute;
-    top: 261px;
-    right: calc(50% - 540px);
-    animation: blink 4s infinite;
-}
-
-#star3 {
-    position: absolute;
-    top: 430px;
-    right: calc(50% - 420px);
-    animation: blink 5s infinite;
-}
-
-#star4 {
-    position: absolute;
-    top: 637px;
-    right: calc(50% - 410px);
-    animation: blink 6s infinite;
-}
-
-#star5 {
-    position: absolute;
-    top: 653px;
-    right: calc(50% - 395px);
-    animation: blink 7s infinite;
-}
-
-#star6 {
-    position: absolute;
-    top: 678px;
-    right: calc(50% - 565px);
-    animation: blink 8s infinite;
-}
-
-@keyframes blink {
-    0% {
-        opacity: 0;
-    }
-    10% {
-        opacity: 1;
-    }
-    40% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
 }
 
 @media (max-width: 1300px) {
@@ -587,7 +545,7 @@
 
     #intro_background_image {
         background-size: 220px;
-        height: 1130px;
+        height: 1164px;
     }
 
     #ufo_main {
@@ -601,7 +559,7 @@
         top: 215px;
         right: 118px;
         width: 925px;
-        height: 886px;
+        height: 949px;
     }
     
     #person_1 {
@@ -709,7 +667,6 @@
     #beam {
         top: 530px;
         right: 93px;
-        height: 949px;
     }
 
     #person_1 {
@@ -773,13 +730,45 @@
     padding-top: 96px;
 }
 
- #quick_start_background_bottom_border {
+#left_top_cloud {
     position: absolute;
-    bottom: 0px;
-    height: 110px;
-    width: 100%;
-    background-color: #1D1E3C;
-} 
+    top: -50px;
+    right: calc(50% + 135px);
+}
+
+#left_mid_cloud {
+    position: absolute;
+    top: 215px;
+    right: calc(50% + 250px);
+}
+
+#right_top_cloud {
+    position: absolute;
+    top: -95px;
+    right: calc(50% - 765px);
+}
+
+#right_mid_cloud {
+    position: absolute;
+    top: 265px;
+    right: calc(50% - 760px);
+}
+
+#left_bottom_cloud {
+    position: absolute;
+    top: 530px;
+    right: calc(50% + 35px);
+    width: 242px;
+    height: 160px;
+}
+
+#right_bottom_cloud {
+    position: absolute;
+    top: 535px;
+    right: calc(50% - 275px);
+    width: 328px;
+    height: 160px;
+}
 
 #quick_start_title {
     font-size: 35px;
@@ -806,7 +795,7 @@
     padding-left: 54px;
     padding-right: 54px;
     padding-bottom: 72px;
-    max-width: 900px;
+    max-width: 915px;
     border-radius: 7px;
     cursor: text;
     overflow-wrap: break-word;
@@ -961,7 +950,6 @@
         padding-top: 100px;
         padding-bottom: 50px;
     }
-
 }
 
 
@@ -1041,17 +1029,11 @@
 }
 
 
-
 /* CONNECT */
 
 #connect_container {
     position: relative;
     margin-bottom: 70px;
-}
-
-#connect_content {
-    margin-top: 190px;
-    margin-left: 42px;
 }
 
 #spaceship {
@@ -1099,17 +1081,7 @@
     line-height: 55px;
 }
 
-#connect_twitter_image {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-}
-
-#connect_container .connect_item {
-    margin-bottom: 10px;
-}
-
-#connect_paragraph_1, #connect_paragraph_2 {
+.connect_paragraph {
     margin-bottom: 32px;
     text-align: center;
 }
@@ -1192,7 +1164,7 @@
         margin-top: 0;
     }
 
-    #connect_paragraph_1, #connect_paragraph_2 {
+    .connect_paragraph {
         text-align: left;
     }
 

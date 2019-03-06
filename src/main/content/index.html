@@ -105,11 +105,11 @@ css: home
             <div id="code_box_column" class="col-lg-12">
                 <a id="code_container" class="text-left d-block mx-auto">
                     <div id="copy_message">Click to copy<img id="copy_img" src="/img/home_copy_button.svg"></div>
-                    git clone https://github.com/openliberty/sample-mpconf.git
+                    git clone https://github.com/OpenLiberty/sample-getting-started.git 
                     <br><br>
-                    cd sample-mpconf
+                    cd sample-getting-started 
                     <br><br>
-                    mvn clean package -P start
+                    mvn clean package liberty:run-server 
                 </a>
                 <div id="sample_app_link_container">
                     <p id="sample_app_browser_link">Then, open browser to </p>
@@ -202,14 +202,14 @@ css: home
     <div class="row">
         <div class="col-sm-12">
                 <h2 id="connect_title">Open Liberty is blasting off… Keep up with us!</h2>
-                <p id="connect_paragraph_1">
+                <p class="connect_paragraph">
                     Stay in touch with the rest of the crew, and never miss an update by
                     <br>
                     following Open Liberty on Twitter.
                 </p>
                 <a id="twitter_link" href="https://twitter.com/OpenLibertyIO/" class="skip_outbound_link_analytics">@OpenLibertyio</a>
         
-                <p id="connect_paragraph_2">
+                <p class="connect_paragraph">
                     Check out the Open Liberty blog for in-depth discussions about new
                     <br>
                     releases, general open source topics, upcoming events, etc.
