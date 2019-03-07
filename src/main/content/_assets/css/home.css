@@ -71,6 +71,22 @@
     height: 1517px;
 }
 
+#ufo_main {
+    position: absolute;
+    top: 82px;
+    right: 175px;
+    width: 461px;
+    height: 247px;
+}
+
+#beam {
+    position: absolute;
+    top: 232px;
+    right: 346px;
+    width: 1542px;
+    height: 1286px;
+}
+
 .star {
     width: 4px;
     height: 4px;
@@ -81,42 +97,42 @@
 #star1 {
     position: absolute;
     top: 250px;
-    right: calc(50% - 535px);
+    right: 175px;
     animation: blink 3s infinite;
 }
 
 #star2 {
     position: absolute;
-    top: 261px;
-    right: calc(50% - 540px);
+    top: 265px;
+    right: 170px;
     animation: blink 4s infinite;
 }
 
 #star3 {
     position: absolute;
     top: 430px;
-    right: calc(50% - 420px);
+    right: 300px;
     animation: blink 5s infinite;
 }
 
 #star4 {
     position: absolute;
     top: 637px;
-    right: calc(50% - 410px);
+    right: 315px;
     animation: blink 6s infinite;
 }
 
 #star5 {
     position: absolute;
     top: 653px;
-    right: calc(50% - 395px);
+    right: 330px;
     animation: blink 7s infinite;
 }
 
 #star6 {
     position: absolute;
-    top: 678px;
-    right: calc(50% - 565px);
+    top: 690px;
+    right: 130px;
     animation: blink 8s infinite;
 }
 
@@ -133,22 +149,6 @@
     100% {
         opacity: 0;
     }
-}
-
-#ufo_main {
-    position: absolute;
-    top: 82px;
-    right: 175px;
-    width: 461px;
-    height: 247px;
-}
-
-#beam {
-    position: absolute;
-    top: 232px;
-    right: 346px;
-    width: 1542px;
-    height: 1286px;
 }
 
 #cloud_1 {
@@ -307,6 +307,18 @@
     height: 128px;
 }
 
+#left_top_cloud {
+    position: absolute;
+    top: 1462px;
+    right: calc(50% + 135px);
+}
+
+#right_top_cloud {
+    position: absolute;
+    top: 1437px;
+    right: calc(50% - 765px);
+}
+
 #intro_content {
     position: relative;
     margin-top: 220px;
@@ -435,36 +447,36 @@
         background-size: 400px;
     }
 
-    #star1 {
-        right: calc(50% - 655px);
-    }
-    
-    #star2 {
-        right: calc(50% - 660px);
-    }
-    
-    #star3 {
-        right: calc(50% - 540px);
-    }
-    
-    #star4 {
-        right: calc(50% - 530px);
-    }
-    
-    #star5 {
-        right: calc(50% - 515px);
-    }
-    
-    #star6 {
-        right: calc(50% - 685px);
-    }
-
     #ufo_main {
         right: 55px;
     }
 
     #beam {
         right: 226px;
+    }
+
+    #star1 {
+        right: 55px;
+    }
+    
+    #star2 {
+        right: 50px;
+    }
+    
+    #star3 {
+        right: 180px;
+    }
+    
+    #star4 {
+        right: 195px;
+    }
+    
+    #star5 {
+        right: 210px;
+    }
+    
+    #star6 {
+        right: 10px;;
     }
 
     #cloud_1 {
@@ -559,9 +571,38 @@
         top: 215px;
         right: 118px;
         width: 925px;
-        height: 949px;
+        height: 950px;
+    }
+
+    #star1 {
+        top: 125px;
+        right: 65px;
     }
     
+    #star2 {
+        top: 138px;
+        right: 55px;
+    }
+    
+    #star3 {
+        right: 80px;
+    }
+    
+    #star4 {
+        top: 960px;
+        right: 58px;
+    }
+    
+    #star5 {
+        top: 965px;
+        right: 43px;
+    }
+    
+    #star6 {
+        top: 950px;
+        right: 30px;;
+    }
+
     #person_1 {
         right: 148px;
         width: 172px;
@@ -569,6 +610,7 @@
     }
 
     #coffee {
+        top: 605px;
         right: 185px;
         width: 59px;
         height: 75px;
@@ -589,14 +631,32 @@
     }
 
     #person_3 {
-        top: 900px;
+        top: 994px;
         right: 585px;
         width: 170px;
         height: 206px;
+        clip: rect(0px,206px,170px,0px);
         -moz-transform: scale(-1, 1);
         -o-transform: scale(-1, 1);
         -webkit-transform: scale(-1, 1);
         transform: scale(-1, 1);
+    }
+
+    #ufo_small {
+        top: 790px;
+        right: 20px;
+        width: 130px;
+        height: 69px;
+    }
+
+    #left_top_cloud {
+        top: 1116px;
+        right: 400px;
+    }
+
+    #right_top_cloud {
+        top: 1116px;
+        right: -127px;
     }
 
     #intro_content {
@@ -619,7 +679,7 @@
 
     #card3_col {
         margin: 0px;
-        margin-bottom: 85px;
+        margin-bottom: 50px;
     }
 
     .card {
@@ -669,18 +729,49 @@
         right: 93px;
     }
 
+    #star1 {
+        top: 455px;
+        right: 330px;
+    }
+    
+    #star2 {
+        top: 462px;
+        right: 320px;
+    }
+    
+    #star3 {
+        top: 680px;
+        right: 35px;
+    }
+    
+    #star4 {
+        top: 800px;
+        right: 58px;
+    }
+    
+    #star5 {
+        top: 810px;
+        right: 45px;
+    }
+    
+    #star6 {
+        top: 1200px;
+    }
+
     #person_1 {
         top: 610px;
         right: 110px;
     }
 
     #intro_lighten_up_title {
+        max-width: 315px;
+        margin: 0 auto;
         margin-bottom: 28px;
     }
 
     #intro_paragraph {
-        padding-left: 20px;
-        padding-right: 20px;
+        max-width: 300px;
+        margin: 0 auto;
         margin-bottom: 18px;
     }
 
@@ -730,22 +821,10 @@
     padding-top: 96px;
 }
 
-#left_top_cloud {
-    position: absolute;
-    top: -50px;
-    right: calc(50% + 135px);
-}
-
 #left_mid_cloud {
     position: absolute;
     top: 215px;
     right: calc(50% + 250px);
-}
-
-#right_top_cloud {
-    position: absolute;
-    top: -95px;
-    right: calc(50% - 765px);
 }
 
 #right_mid_cloud {
@@ -856,9 +935,18 @@
 }
 
 @media (max-width: 991.98px) {
-    #quick_start_row {
-        margin-top: 255px;
+    #quick_start_background {
+        margin-top: 245px;
     }
+
+    #left_bottom_cloud {
+        top: 550px;
+    }
+
+    #right_bottom_cloud {
+        top: 555px;
+    }
+
 }
 
 
@@ -866,10 +954,13 @@
 
     #quick_start_background {
         padding-top: 60px;
+        margin-top: 160px;
     }
 
-    #quick_start_row {
-        margin-top: 160px;
+    #quick_start_title {
+        max-width: 315px;
+        margin: 0 auto;
+        margin-bottom: 15px;
     }
 
     #code_box_column {
@@ -940,6 +1031,11 @@
 }
 
 @media (max-width: 991.98px) {
+    #guides_container {
+        padding-top: 88px;
+        padding-bottom: 87px;
+    }
+
     #guides_title {
         margin-top: 0px;
     }
@@ -947,8 +1043,17 @@
 
 @media (max-width: 767.98px) {
     #guides_container {
-        padding-top: 100px;
         padding-bottom: 50px;
+    }
+
+    #guides_link_container {
+        display: block;
+    }
+
+    #guides_link {
+        width: 260px;
+        padding: 13px 28px;
+        margin: 0 auto;
     }
 }
 
@@ -1017,6 +1122,10 @@
         padding-bottom: 50px;
     }
 
+    .collaborate_link_container {
+        margin-bottom: 30px;
+    }
+
     .collaborate_link {
         font-size: 16px;
         width: 260px;
@@ -1082,8 +1191,10 @@
 }
 
 .connect_paragraph {
+    margin: 0 auto;
     margin-bottom: 32px;
     text-align: center;
+    max-width: 480px;
 }
 
 #twitter_link {
@@ -1133,31 +1244,26 @@
     background-color: #abd155;
 }
 
-
-@media (max-width: 1199.98px) {
-
-    #connect_content {
-        margin-top: 40px;
-    }
-
-}
-
 @media (max-width: 991.98px) {
-
-    #connect_content {
-        margin-top: 0px;
+    #spaceship {
+        right: 570px;
     }
 
+    #connect_left_mid_cloud {
+        top: 220px;
+        right: 631px;
+    }
 }
 
 @media (max-width: 767.98px) {
 
-    #connect_content {
-        margin-left: 0;
-    }
-
     #connect_container {
         margin-bottom: 40px;
+    }
+
+    #connect_right_top_cloud {
+        top: -117px;
+        right: -77px;
     }
 
     #connect_title {
