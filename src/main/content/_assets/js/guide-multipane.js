@@ -71,16 +71,25 @@ function highlight_code_range(code_section, fromLine, toLine, scroll){
     range.wrapAll("<div class='highlightSection'></div>");
 
     if(scroll){
+        var container = code_section.parents(".code_column_container");
         var scrollTop = code_section.parent()[0].scrollTop;
         var position = range.position().top;
-        var titleBarHeight = code_section.parent().find(".code_column_title_container").outerHeight();
-        $(".code_column_content").animate({scrollTop: scrollTop + position - titleBarHeight});
+        var titleBarHeight = container.find(".code_column_title_container").outerHeight();
+        // Before scrolling to the hotspot, check if the file is collapsed and needs to be fully shown.
+        if(inSingleColumnView()){
+            var height = code_section.height();
+            if(position > height){
+                container.find(".mobile_code_expand").click();
+            }
+        }
+        container.find(".code_column_content").animate({scrollTop: scrollTop + position - titleBarHeight});
     }        
 }
 
 // Remove all highlighting for the code section.
-function remove_highlighting(){
-    var highlightedSections = $('.highlightSection');
+// @param {code_column} optional code section to remove highlighting from.
+function remove_highlighting(code_column){
+    var highlightedSections = code_column ? code_column.find('.highlightSection') : $('.highlightSection');
     highlightedSections.each(function(){
         var children = $(this).children('span');
         children.unwrap(); // Remove the wrapped highlighted div from these children.
@@ -153,6 +162,7 @@ function showCorrectCodeBlock(id, index, switchTabs) {
  * Handle hovering over hotspots. This will look up the corresponding code section on the right and search for the lines to highlight. Debounce is used to prevent multiple hotspots from being hovered over quickly and having the page jump around. It will handle the latest hotspot hovered over once 250 ms has passed.
  * @param hotspot: The snippet hovered over in the guide column.
  * @param highlightCode: boolean if the code should be highlighted
+ * @param section_id: optional section_id if the hotspot is not for the main desktop code section.
  */
 var handleHotspotHover = debounce(function(hotspot){
     // Only highlight the code if the mouse is still hovered over the hotspot after the debounce.
@@ -166,10 +176,23 @@ var handleHotspotHover = debounce(function(hotspot){
     if(!fileIndex){
         fileIndex = 0;
     }
-    var code_block = code_sections[header.id][fileIndex].code;
-    if(code_block){            
+    var code_block;
+    if(inSingleColumnView()){
+        // Show the correct code file in the mobile hotspot code section.
+        var code_column = hotspot.next('.code_column_container');
+        var section_id = getScrolledVisibleSectionID();
+        code_block = $(code_column.find(".code_column[data-section-id='" + section_id + "']").get(fileIndex)); 
+        if(code_block.length === 0){
+            // Check if the parent section has code associated with it.
+            section_id = hotspot.parents('.sect1').find('h2').first().attr('id');
+            code_block = $(code_column.find(".code_column[data-section-id='" + section_id + "']").get(fileIndex)); 
+        }
+    } else {
+        code_block = code_sections[header.id][fileIndex].code;
+    }
+    if(code_block){
         // Save the code section for later when the user comes back to this section and we want to show the most recent code viewed.
-        recent_sections[header.id] = code_sections[header.id][fileIndex];                
+        recent_sections[header.id] = code_sections[header.id][fileIndex];
         // Switch to the correct tab
         var tab = code_sections[header.id][fileIndex].tab;
         setActiveTab(tab);                   
@@ -655,34 +678,34 @@ $(document).ready(function() {
     // In mobile view if the user clicks a hotspot it shows a modal of the file with the hotspot code highlighted.
     $('.hotspot').on('click', function(){
         if(inSingleColumnView()){
-            if($(this).attr('open_hotspot')){
-                return;
-            }
-            $(this).attr('open_hotspot', 'true');         
+            if(!$(this).attr('open_hotspot')){  
+                $(this).attr('open_hotspot', 'true');         
 
-            // Clone the code column and display it below the hotspot
-            var code_clone = $("#code_column").clone(true); // Clone the code column including its events.
-            code_clone.removeAttr('id');
-            code_clone.addClass('mobile_code_column');
-            code_clone.addClass("open");
+                // Clone the code column and display it below the hotspot
+                var code_clone = $("#code_column").clone(true); // Clone the code column including its events.
+                code_clone.removeAttr('id');
+                code_clone.addClass('mobile_code_column');
+                code_clone.addClass("open");
 
-            // Scroll the hotspot to the top of the page, with the paragraph encompassing the hotspot shown.
-            var top = $(this).offset().top;
-            var mobile_toc_height = $("#mobile_toc_accordion").height();
-            var scrollTo = top - mobile_toc_height;     
-            $('html, body').stop().animate({
-                scrollTop: scrollTo
-            }, 400);
+                // Scroll the hotspot to the top of the page, with the paragraph encompassing the hotspot shown.
+                var top = $(this).offset().top;
+                var mobile_toc_height = $("#mobile_toc_accordion").height();
+                var scrollTo = top - mobile_toc_height;     
+                $('html, body').stop().animate({
+                    scrollTop: scrollTo
+                }, 400);
 
-            // Set the top of the code to appear underneath the hotspot that was clicked.
-            var hotspot_height = $(this).height();
-            var bottom = scrollTo + window.innerHeight - hotspot_height - 5;
-            var height = (bottom - scrollTo) / 2;
-            code_clone.css({
-                "height" : height
-            });
-
-            $(this).after(code_clone);
+                // Set the top of the code to appear underneath the hotspot that was clicked.
+                var hotspot_height = $(this).height();
+                var bottom = scrollTo + window.innerHeight - hotspot_height - 5;
+                var height = (bottom - scrollTo) / 2;
+                code_clone.css({
+                    "height" : height
+                });
+                remove_highlighting(code_clone);
+                $(this).after(code_clone);
+            }   
+            // TODO: If the hotspot is in the second half of the editor then we need to expand it         
             handleHotspotHover($(this));
         }
     });
@@ -707,6 +730,13 @@ $(document).ready(function() {
         // Hide the collapse button and show the expand button.
         $(this).hide();
         $(this).siblings('.mobile_code_expand').show();
+
+        // Scroll back to where you were in the text after collapsing the section
+        var offset = $(this).parents('.code_column_container').offset().top;
+        var toc_height = $("#mobile_toc_accordion_container").outerHeight();
+        $('html, body').stop().animate({
+            scrollTop: offset - toc_height
+        }, 400);
     });
 
     // When hovering over a code hotspot, highlight the correct lines of code in the corresponding code section.
