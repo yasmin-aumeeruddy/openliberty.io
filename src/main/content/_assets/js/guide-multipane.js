@@ -77,8 +77,9 @@ function highlight_code_range(code_section, fromLine, toLine, scroll){
         var titleBarHeight = container.find(".code_column_title_container").outerHeight();
         // Before scrolling to the hotspot, check if the file is collapsed and needs to be fully shown.
         if(inSingleColumnView()){
-            var height = code_section.height();
-            if(position > height){
+            var range_height = range.height();
+            var code_height = code_section.height();
+            if((position + range_height) > code_height){
                 container.find(".mobile_code_expand").click();
             }
         }
@@ -121,8 +122,14 @@ function get_code_block_from_hotspot(hotspot){
     return code_sections[header.id][fileIndex].code;
 }
 
-// Hide other code blocks and show the correct code block based on provided id.
-function showCorrectCodeBlock(id, index, switchTabs) {
+/* Show the code block if passed in, otherwise find the code block based on the section id and index.
+   Hide the other code blocks in the given code section
+   @param {id} section id
+   @param {index} file index for determining which code block in the given section to show
+   @param {switchTabs} boolean to switch to the tab or not
+   @param {code_block} Which code block to show, if available
+*/
+function showCorrectCodeBlock(id, index, switchTabs, code_block) {
     if(!id){
         // At the start of the guide where there is no guide section.
         return;
@@ -133,13 +140,16 @@ function showCorrectCodeBlock(id, index, switchTabs) {
         }
         var tab;
         // Load the most recently viewed tab for this section if viewed before.
-        if(recent_sections[id]){
-            tab = recent_sections[id].tab;
-            index = tab.data('file-index');                
-        }
-        var code_block = code_sections[id][index].code;
+        if(!code_block){
+            if(recent_sections[id]){
+                tab = recent_sections[id].tab;
+                index = tab.data('file-index');
+            }
+            code_block = code_sections[id][index].code;
+        }  
         if(code_block){
-            $('#code_column .code_column').not(code_block).hide();
+            var code_section = code_block.parents('.code_column_container');
+            code_section.find('.code_column').not(code_block).hide();
             code_block.show();
             if(switchTabs){
                 // Load all of the tabs for this section
@@ -195,8 +205,8 @@ var handleHotspotHover = debounce(function(hotspot){
         recent_sections[header.id] = code_sections[header.id][fileIndex];
         // Switch to the correct tab
         var tab = code_sections[header.id][fileIndex].tab;
-        setActiveTab(tab);                   
-        showCorrectCodeBlock(header.id, fileIndex, false);
+        setActiveTab(tab);
+        showCorrectCodeBlock(header.id, fileIndex, false, code_block);
 
         // Highlight the code
         var ranges = hotspot.data('highlight-ranges');
@@ -364,12 +374,12 @@ function setActiveTab(activeTab){
     if(activeTab.children('a').hasClass('active')){
         return;
     }
-    $('.code_column_tab > a').removeClass('active');
+    var code_column = activeTab.parents('.code_column_container');
+    code_column.find('.code_column_tab > a').removeClass('active');
     activeTab.children('a').addClass('active');
     activeTab.show();
 
     // Adjust the code content to take up the remaining height
-    var code_column = activeTab.parents('.code_column_container');
     var tabListHeight = code_column.find(".code_column_title_container").outerHeight();
     code_column.find(".code_column_content").css({
         "height": "calc(100% - " + tabListHeight + "px)"
@@ -681,8 +691,8 @@ $(document).ready(function() {
             if(!$(this).attr('open_hotspot')){  
                 $(this).attr('open_hotspot', 'true');         
 
-                // Clone the code column and display it below the hotspot
-                var code_clone = $("#code_column").clone(true); // Clone the code column including its events.
+                // Clone the code column including its events and display it below the hotspot
+                var code_clone = $("#code_column").clone(true);
                 code_clone.removeAttr('id');
                 code_clone.addClass('mobile_code_column');
                 code_clone.addClass("open");
