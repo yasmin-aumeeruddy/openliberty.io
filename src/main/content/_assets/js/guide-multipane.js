@@ -75,14 +75,6 @@ function highlight_code_range(code_section, fromLine, toLine, scroll){
         var scrollTop = code_section.parent()[0].scrollTop;
         var position = range.position().top;
         var titleBarHeight = container.find(".code_column_title_container").outerHeight();
-        // Before scrolling to the hotspot, check if the file is collapsed and needs to be fully shown.
-        if(inSingleColumnView()){
-            var range_height = range.height();
-            var code_height = code_section.height();
-            if((position + range_height) > code_height){
-                container.find(".mobile_code_expand").click();
-            }
-        }
         container.find(".code_column_content").animate({scrollTop: scrollTop + position - titleBarHeight});
     }        
 }
@@ -201,11 +193,13 @@ var handleHotspotHover = debounce(function(hotspot){
         code_block = code_sections[header.id][fileIndex].code;
     }
     if(code_block){
-        // Save the code section for later when the user comes back to this section and we want to show the most recent code viewed.
-        recent_sections[header.id] = code_sections[header.id][fileIndex];
-        // Switch to the correct tab
-        var tab = code_sections[header.id][fileIndex].tab;
-        setActiveTab(tab);
+        if(!inSingleColumnView()){
+            // Save the code section for later when the user comes back to this section and we want to show the most recent code viewed.
+            recent_sections[header.id] = code_sections[header.id][fileIndex];
+            // Switch to the correct tab
+            var tab = code_sections[header.id][fileIndex].tab;
+            setActiveTab(tab);
+        }        
         showCorrectCodeBlock(header.id, fileIndex, false, code_block);
 
         // Highlight the code
@@ -708,14 +702,15 @@ $(document).ready(function() {
                 // Set the top of the code to appear underneath the hotspot that was clicked.
                 var hotspot_height = $(this).height();
                 var bottom = scrollTo + window.innerHeight - hotspot_height - 5;
-                var height = (bottom - scrollTo) / 2;
+                // var height = (bottom - scrollTo) / 2;
+                var height = bottom - scrollTo;
+                code_clone.data('collapsed_height', height / 2);
                 code_clone.css({
                     "height" : height
                 });
                 remove_highlighting(code_clone);
                 $(this).after(code_clone);
-            }   
-            // TODO: If the hotspot is in the second half of the editor then we need to expand it         
+            }        
             handleHotspotHover($(this));
         }
     });
@@ -724,18 +719,20 @@ $(document).ready(function() {
         // Expand the code column to its full height (auto)
         var code_column = $(this).parents('.mobile_code_column');
         var height = code_column.css('height');
-        code_column.data('old_height', height);
+        code_column.data('collapsed_height', height);
         code_column.css({
             'height': 'auto'
-        }).addClass('removeGradient');
+        });
+        code_column.removeClass('gradient');
         $(this).hide();
         $(this).siblings('.mobile_code_collapse').show();
     });
 
     $('.mobile_code_collapse').on('click', function(){
         var code_column = $(this).parents('.mobile_code_column');
-        var old_height = code_column.data('old_height');
-        code_column.css('height', old_height);
+        var collapsed_height = code_column.data('collapsed_height');
+        code_column.css('height', collapsed_height);
+        code_column.addClass('gradient');
 
         // Hide the collapse button and show the expand button.
         $(this).hide();
