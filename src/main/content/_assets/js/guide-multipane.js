@@ -709,7 +709,17 @@ $(document).ready(function() {
                     "height" : height
                 });
                 remove_highlighting(code_clone);
-                $(this).after(code_clone);
+                // If the hotspot is within a table, insert the code below it.
+                var table_row = $(this).parents('tr');
+                if(table_row.length === 1){
+                    var new_tr = $("<tr></tr>");
+                    var new_td = $("<td colspan='2'></td>");
+                    new_tr.append(new_td);
+                    new_td.append(code_clone);        
+                    table_row.after(new_tr);
+                } else {
+                    $(this).after(code_clone);
+                }                
             }        
             handleHotspotHover($(this));
         }
