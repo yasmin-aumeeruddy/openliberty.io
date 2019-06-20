@@ -122,7 +122,7 @@ header {
 #guide_content pre  {
     /* Bootstrap override */
     background-color: #ffffff;
-    color: #7B7B7B;
+    color: darken(#7B7B7B, 5%); // Darken to pass DAP test
 }
 
 #guide_content code {

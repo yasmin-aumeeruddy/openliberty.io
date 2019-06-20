@@ -709,11 +709,12 @@ $(document).ready(function() {
                     "height" : height
                 });
                 remove_highlighting(code_clone);
-                // If the hotspot is within a table, insert the code below it.
+                // If the hotspot is within a table, insert the code in a row below it.
                 var table_row = $(this).parents('tr');
                 if(table_row.length === 1){
                     var new_tr = $("<tr></tr>");
                     var new_td = $("<td colspan='2'></td>");
+                    new_td.css('padding', '0'); // Make the code full width
                     new_tr.append(new_td);
                     new_td.append(code_clone);        
                     table_row.after(new_tr);
