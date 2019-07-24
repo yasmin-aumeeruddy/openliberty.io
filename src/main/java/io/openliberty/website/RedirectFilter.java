@@ -1,24 +1,28 @@
 package io.openliberty.website;
 
-import java.io.InputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.EnumSet;
 import java.util.Map;
 import java.util.Properties;
-
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.DispatcherType;
 import javax.servlet.Filter;
-import javax.servlet.FilterConfig;
 import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
 import javax.servlet.FilterRegistration.Dynamic;
-import javax.servlet.ServletException;
 import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+
 
 public class RedirectFilter implements Filter {
+  private static final Logger logger = Logger.getLogger(RedirectFilter.class.getName());
   public String from;
   public String to;
   public boolean startsWithMatch;
@@ -31,19 +35,34 @@ public class RedirectFilter implements Filter {
     }
   }
 
+  @Override
   public void destroy() {
   }
 
+  @Override
   public void init(FilterConfig cfg) {
   }
 
+  @Override
   public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
     String newURL = null;
     String sPort = getServerPort(req);
     if (startsWithMatch) {
+      // redirect pattern has a wildcard
       String uri = ((HttpServletRequest)req).getRequestURI();
       newURL = uri.replaceAll(from, to);
-      if (newURL.equals(uri)) {
+      if (logger.isLoggable(Level.FINER)) {
+        logger.log(Level.FINE, "doFilter() variables");
+        logger.log(Level.FINE, "from:", from);
+        logger.log(Level.FINE, "to", to);
+        logger.log(Level.FINE, "uri", uri);
+        logger.log(Level.FINE, "newURL", newURL);
+		  }
+
+      if (newURL.equals(uri) || uri.equals("/docs/ref/config/") || uri.equals("/docs/ref/config/serverConfiguration.html") || uri.equals("/docs/ref/config/#serverConfiguration.html") || uri.startsWith("/docs/ref/config/#")) {
+        if (logger.isLoggable(Level.FINER)) {
+          logger.log(Level.FINE, "skipping redirect");
+        }
         newURL = null;
       }
     } else {
@@ -52,6 +71,9 @@ public class RedirectFilter implements Filter {
 
     if (newURL != null) {
       newURL = req.getScheme() + "://" + req.getServerName() + sPort + newURL;
+      if (logger.isLoggable(Level.FINER)) {
+        logger.log(Level.FINE, "Redirecting to: " + newURL);
+      }
       ((HttpServletResponse)resp).sendRedirect(newURL);
     } else {
       chain.doFilter(req, resp);

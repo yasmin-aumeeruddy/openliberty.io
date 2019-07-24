@@ -1081,19 +1081,32 @@ function adjustFrameHeight() {
 function updateHashAfterRedirect() {
     var hashValue = window.location.hash;
     var href = "";
-    if (hashValue !== "" && hashValue.indexOf("#rwlp_config_") !== -1) {
-        hashValue = hashValue.substring("#rwlp_config_".length);
-        //hashValue = hashValue.substring(1);
-        if (hashValue.indexOf("&") !== -1) {
-            href = "/docs/ref/config/" + hashValue.substring(0, hashValue.indexOf("&"));
-        } else {
-            href = "/docs/ref/config/" + hashValue;
+    if (hashValue !== "") {
+        if(hashValue.indexOf("#rwlp_config_") !== -1){
+            hashValue = hashValue.substring("#rwlp_config_".length);
+            //hashValue = hashValue.substring(1);
+            if (hashValue.indexOf("&") !== -1) {
+                href = "/docs/ref/config/" + hashValue.substring(0, hashValue.indexOf("&"));
+            } else {
+                href = "/docs/ref/config/" + hashValue;
+            }
+        
+            var iframeContent = $('iframe[name="contentFrame"]').contents();
+            var location = iframeContent.attr("location");
+            if (location.pathname + location.hash === href) {
+                replaceHistoryState('#' + hashValue);
+            }
         }
-    
-        var iframeContent = $('iframe[name="contentFrame"]').contents();
-        var location = iframeContent.attr("location")
-        if (location.pathname + location.hash === href) {
-            replaceHistoryState('#' + hashValue);
+        else if(hashValue.indexOf("#") === 0){
+            var strippedValue = hashValue.substring(1);
+            href = "/docs/ref/config/" + hashValue;
+            var iframeContent = $('iframe[name="contentFrame"]').contents();
+            var location = iframeContent.attr("location");
+            if (location.pathname + location.hash === href) {
+                replaceHistoryState(hashValue);
+                iframeContent.src = strippedValue;
+                // setIframeLocationHref(strippedValue);
+            }
         }
     }
 }
@@ -1173,7 +1186,7 @@ $(document).ready(function () {
             adjustFrameHeight();
             var TOCSubElement = findTOCElement(true);
             if (TOCSubElement) {
-                setSelectedTOC(TOCSubElement, true)
+                setSelectedTOC(TOCSubElement, true);
             } else if (TOCElement) {
                 setSelectedTOC(TOCElement, true);
             }
