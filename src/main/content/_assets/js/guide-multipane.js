@@ -682,8 +682,8 @@ $(document).ready(function() {
     // In mobile view if the user clicks a hotspot it shows a modal of the file with the hotspot code highlighted.
     $('.hotspot').on('click', function(){
         if(inSingleColumnView()){
-            if(!$(this).attr('open_hotspot')){  
-                $(this).attr('open_hotspot', 'true');         
+            if(!$(this).attr('open_hotspot')){
+                $(this).attr('open_hotspot', 'true');
 
                 // Clone the code column including its events and display it below the hotspot
                 var code_clone = $("#code_column").clone(true);
@@ -694,7 +694,7 @@ $(document).ready(function() {
                 // Scroll the hotspot to the top of the page, with the paragraph encompassing the hotspot shown.
                 var top = $(this).offset().top;
                 var mobile_toc_height = $("#mobile_toc_accordion").height();
-                var scrollTo = top - mobile_toc_height;     
+                var scrollTo = top - mobile_toc_height;
                 $('html, body').stop().animate({
                     scrollTop: scrollTo
                 }, 400);
@@ -704,10 +704,10 @@ $(document).ready(function() {
                 var bottom = scrollTo + window.innerHeight - hotspot_height - 5;
                 // var height = (bottom - scrollTo) / 2;
                 var height = bottom - scrollTo;
-                code_clone.data('collapsed_height', height / 2);
-                code_clone.css({
-                    "height" : height
-                });
+                code_clone.data('collapsed_height', height / 2); // steven
+                // code_clone.css({
+                //     "height" : height
+                // });
                 remove_highlighting(code_clone);
                 // If the hotspot is within a table, insert the code in a row below it.
                 var table_row = $(this).parents('tr');
@@ -726,35 +726,43 @@ $(document).ready(function() {
         }
     });
 
-    $('.mobile_code_expand').on('click', function(){
+    function handleMobileCodeExpand(expand_button){
         // Expand the code column to its full height (auto)
-        var code_column = $(this).parents('.mobile_code_column');
+        var code_column = expand_button.parents('.mobile_code_column');
         var height = code_column.css('height');
         code_column.data('collapsed_height', height);
         code_column.css({
             'height': 'auto'
         });
         code_column.removeClass('gradient');
-        $(this).hide();
-        $(this).siblings('.mobile_code_collapse').show();
-    });
+        expand_button.hide();
+        expand_button.siblings('.mobile_code_collapse').show();
+    }
 
-    $('.mobile_code_collapse').on('click', function(){
-        var code_column = $(this).parents('.mobile_code_column');
+    function handleMobileCodeCollapse(collapse_button){
+        var code_column = collapse_button.parents('.mobile_code_column');
         var collapsed_height = code_column.data('collapsed_height');
         code_column.css('height', collapsed_height);
         code_column.addClass('gradient');
 
         // Hide the collapse button and show the expand button.
-        $(this).hide();
-        $(this).siblings('.mobile_code_expand').show();
+        collapse_button.hide();
+        collapse_button.siblings('.mobile_code_expand').show();
 
         // Scroll back to where you were in the text after collapsing the section
-        var offset = $(this).parents('.code_column_container').offset().top;
+        var offset = collapse_button.parents('.code_column_container').offset().top;
         var toc_height = $("#mobile_toc_accordion_container").outerHeight();
         $('html, body').stop().animate({
             scrollTop: offset - toc_height
         }, 400);
+    }
+
+    $('.mobile_code_expand').on('click', function(){
+        handleMobileCodeExpand($(this));
+    });
+
+    $('.mobile_code_collapse').on('click', function(){
+        handleMobileCodeCollapse($(this));
     });
 
     // When hovering over a code hotspot, highlight the correct lines of code in the corresponding code section.
