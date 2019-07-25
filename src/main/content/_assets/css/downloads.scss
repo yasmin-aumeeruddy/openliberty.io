@@ -210,7 +210,21 @@ html, body{
     transition: all .3s;
 }
 
-#runtime_download_link:hover .arrow {
+.arrow_line {
+    display: inline-block;
+}
+
+.table_arrow {
+    display: inline-block;
+    width: 10px;
+    height: 14px;
+    background-image: url('/img/download_downarrow_blue.svg');
+    background-repeat: no-repeat;
+    transition: all .3s;
+    margin-right: 10px;
+}
+
+#runtime_download_link:hover .arrow, td a:hover .table_arrow {
     transform: translateY(2px);
 }
 
@@ -222,6 +236,14 @@ html, body{
     position: absolute;
     right: 31px;
     top: calc(50% + 8.5px);
+}
+
+.table_line {
+    width: 12px;
+    height: 3px;
+    background-image: url('/img/download_arrow_line_blue.svg');
+    background-repeat: no-repeat;
+    position: relative;
 }
 
 #runtime_download_link:hover .line {
@@ -536,12 +558,6 @@ html, body{
     padding-left: 24px;
 }
 
-.build_table tbody:before {
-    height: 11px;
-    content: "";
-    display: block;
-}
-
 .build_table tbody tr td:last-child {
     text-align: right;
     padding-right: 20px;
@@ -599,19 +615,12 @@ html, body{
 }
 
 .white_table tbody tr:hover {
-    background-color: #F5F8FD;
+    background-color: #ebedf0;
 }
 
 .white_table tbody tr td, .white_table tbody tr td:last-child {
     padding-left: 24px;
     text-align: left;
-}
-
-.white_table tbody tr td img, .orange_table tbody tr td img {
-    display: none;
-    height: 17px;
-    width: 9px;
-    margin-left: 17px;
 }
 
 .white_table tbody tr td a:hover img{
@@ -620,12 +629,13 @@ html, body{
 
 .white_table tbody a{
     font-weight: 500;
-    color: #5E6B8D;
+    color: #546FB5 !important;
     letter-spacing: 0;
 }
 
 .white_table tbody a:hover{
     cursor: pointer;
+    color: #6787D9;
 }
 
 .white_table .table_date {
@@ -773,4 +783,9 @@ html, body{
         white-space: nowrap;
     }
 
+}
+
+
+.white_table tbody .shadow {
+    background-color: #f6f8fa;
 }
