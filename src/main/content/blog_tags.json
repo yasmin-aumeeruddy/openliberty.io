@@ -17,7 +17,7 @@
         },
         {
             "name": "Maven",
-            "posts": ["installing-features-from-maven-dependencies", "build-and-push-spring-boot-docker-images", "", ""]
+            "posts": ["installing-features-from-maven-dependencies", "build-and-push-spring-boot-docker-images", "microprofile-30-developer-experience", "microprofile-rest-client-19006","java11-hotspot-19005"]
         },
         {
             "name": "security",
@@ -29,11 +29,33 @@
         },
         {
             "name": "Docker",
-            "posts": ["optimizing-spring-boot-apps-for-docker", "creating-dual-layer-docker-images-for-spring-boot-apps", "build-and-push-spring-boot-docker-images", "distributed-tracing-microservices", "integration-testing-with-testcontainers"]
+            "posts": ["optimizing-spring-boot-apps-for-docker", "creating-dual-layer-docker-images-for-spring-boot-apps", "build-and-push-spring-boot-docker-images", "distributed-tracing-microservices", "integration-testing-with-testcontainers","microprofile-30-developer-experience","microprofile-rest-client-19006","java11-hotspot-19005"]
         },
         {
             "name": "Gradle",
-            "posts": ["microprofile-12-open-liberty-17003", "installing-features-from-maven-dependencies"]
-        }
+            "posts": ["microprofile-12-open-liberty-17003", "installing-features-from-maven-dependencies","microprofile-30-developer-experience","microprofile-rest-client-19006","java11-hotspot-19005"]
+        },
+        {
+            "name": "PostgreSQL",
+            "posts": ["java11-hotspot-19005","microprofile-rest-client-19006","microprofile-30-developer-experience"]
+        },    
+        {
+            "name": "health check",
+            "posts": ["microprofile-30-developer-experience"]
+        },
+        {
+            "name": "JSON",
+            "posts": ["microprofile-metrics-migration"]
+        },
+        {   
+            "name": "requests",
+            "posts": ["microprofile-metrics-migration"]
+        },
+        {
+            "name": "Metrics",
+            "posts": ["microprofile-30-developer-experience","microprofile-metrics-migration"]
+        },
+    ]
+}
     ]
 }
