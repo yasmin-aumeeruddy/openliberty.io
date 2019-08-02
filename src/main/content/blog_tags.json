@@ -34,6 +34,30 @@
         {
             "name": "Gradle",
             "posts": ["microprofile-12-open-liberty-17003", "installing-features-from-maven-dependencies"]
-        }
+        },
+        {
+	        "name": "PostgreSQL",
+	        "posts": ["microprofile-rest-client-19006","java11-hotspot-19005","microprofile-30-developer-experience"]
+	    },
+	    {
+            "name": "health check",
+	        "posts": ["microprofile-30-developer-experience"]
+	    },
+	    {
+            "name": "JSON",
+	        "posts": ["microprofile-metrics-migration",]
+	    },
+        {
+            "name": "requests",
+	        "posts": ["microprofile-metrics-migration"]
+	    },
+	    {
+            "name": "Metrics",
+            "posts": ["microprofile-30-developer-experience","microprofile-metrics-migration"]
+	    },
+        {
+            "name": "jakarta ee",
+	        "post": ["jakarta-ee-naming"]
+	    }
     ]
 }
